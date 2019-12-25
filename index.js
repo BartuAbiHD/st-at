@@ -2032,7 +2032,141 @@ message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının profil
       message.channel.stopTyping()
     }
 
-    //Profil
+  /*
+    if (command === 'rütbe' || command === 'rank') {
+      message.channel.startTyping()
+        var user = message.mentions.users.first() || message.author;
+        let membername = await db.fetch(`membername_${user.id}`);
+        if (membername == null) membername = `${user.tag}`
+				const bg = await Jimp.read("https://cdn.discordapp.com/attachments/458732340491845633/482242581040988160/fadawdawdawd.png");
+				const userimg = await Jimp.read(user.avatarURL);
+				var font;
+				if (user.tag.length < 12) font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
+				else if (user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
+				else font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
+				var font2;
+				if (user.tag.length < 15) font2 = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
+				else if (user.tag.length > 15) font2 = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
+				else font2 = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
+				await bg.print(font2, 100, 75, `GP: ${userData.points}`);
+				await bg.print(font2, 100, 55, `Level: ${userData.level}`);
+				await bg.print(font, 103, 10, membername);
+				await userimg.resize(90, 90);
+				await (!userimg.resize(90, 90));
+        await bg.composite(userimg, 5, 5).write("./img/rank/" + client.user.id + "-" + user.id + ".png");
+				  setTimeout(function () {
+message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının rütbe kartı**`)
+						message.channel.send(new Discord.Attachment("./img/rank/" + client.user.id + "-" + user.id + ".png"));
+				  }, 1000);
+				  setTimeout(function () {
+					fs.unlink("./img/rank/" + client.user.id + "-" + user.id + ".png");
+				  }, 10000);
+      message.channel.stopTyping()
+    }
+    */
+
+    if (command === "bioayarla" || command === "biyografi" || command === "biyografi-ayarla" || command === "hakkında") {
+
+      var biyo = args.slice(0).join(' ');
+      if (biyo.length < 1) return message.reply('Lütfen biyografinizi yazınız!')
+
+        if (args.join(' ').length > 35) return message.channel.send(`${red} En fazla 35 karakter girebilirsiniz.`)
+        
+        if (!args.join(" ") && args.join(" ").toLowerCase() === `none`)
+            return message.channel.send(`Uyarı: Geçerli bir yazı yazmalısın.\nDoğru kullanım: ${prefix}biyografi Leınx'S bot adamdır.`)
+        let newMessage;
+        if (args.join(" ").toLowerCase() === `none`) newMessage = '';
+        else newMessage = args.join(" ").trim();
+       const i = await db.set(`memberID_${message.author.id}`, newMessage)
+            return message.channel.send(`${onay} Yeni biyografin ayarlandı.`)
+        }
+    
+  
+    if (command === "isim" || command === "isimayarla") {
+        if (args.join(' ').length > 15) return message.channel.send(`${red} En fazla 15 karakter girebilirsiniz.`)
+
+        var isim = args.slice(0).join(' ');
+        if (isim.length < 1) return message.reply('Lütfen bir isim giriniz!')
+
+        
+        let newMessage;
+
+      
+  
+
+        if (args.join(" ").toLowerCase() === `none`) newMessage = '';
+        else newMessage = args.join(" ").trim();
+      const i = await db.set(`membername_${message.author.id}`, newMessage)
+            return message.channel.send(`${onay} Yeni ismin ayarlandı.`)
+        }
+    
+  
+        if (command === "rozet-parar") {
+          if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channek.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+          const i = await db.set(`memberBadge6_${user.id}`, "https://cdn.discordapp.com/attachments/531535859594297364/533260601162465280/paraR.png")
+              return message.channel.send(`${onay} Verdım aşkm.`)
+          
+      }
+
+    if (command === "rozet-onayla") {
+        if (message.author.id !== "507803933557915652"  && message.author.id !== "336869318874890241" ) return message.channek.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845736347435015/401725450470031362.png")
+            return message.channel.send(`${onay} Kullanıcıya onay rozeti verilmiştir.`)
+        
+    }
+  
+    if (command === "rozet-konay" || command === "rozet-konayla") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
+            return message.channel.send(`${onay} Kullanıcıdan onay rozeti alınmıştır.`)
+        
+    }
+  
+    if (command === "rozet-yetkili" || command === "rozet-ekip") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge2_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845736347435009/401723658491527168.png")
+            return message.channel.send(`${onay} Kullanıcıya ekip rozeti verilmiştir.`)
+        
+    }
+  
+    if (command === "rozet-kyetkili" || command === "rozet-kekip") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge2_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
+            return message.channel.send(`${onay} Kullanıcıdan ekip rozeti alınmıştır.`)
+        
+    }
+  
+    if (command === "rozet-destekci" || command === "rozet-destekçi") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge3_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845737006202881/401725034453925889.png")
+            return message.channel.send(`${onay} Kullanıcıya destekçi rozeti verilmiştir.`)
+        
+    }
+  
+    if (command === "rozet-kdestekci" || command === "rozet-kdestekçi") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge3_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
+            return message.channel.send(`${onay} Kullanıcıdan destekçi rozeti alınmıştır.`)
+        
+    }
+  
+    if (command === "rozet-mod" || command === "rozet-moderator") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge4_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845735647117312/401724520806875139.png")
+            return message.channel.send(`${onay} Kullanıcıya moderator rozeti verilmiştir.`)
+        
+    }
+  
+    if (command === "rozet-kmod" || command === "rozet-kmoderator") {
+        if (message.author.id !== "507803933557915652" && message.author.id !== "336869318874890241" ) return message.channel.send(`${red} Bu komutu kullanmak için yetkin bulunmuyor.`);
+        const i = await db.set(`memberBadge4_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
+            return message.channel.send(`${onay} Kullanıcıdan moderator rozeti alınmıştır.`)
+        
+    }
+})
+
+// PROFİL SİSTEMİ BROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO BİTER BU ARADA ---------------------------------------------
+
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
@@ -2158,4 +2292,5 @@ client.on('ready', () => {
   dbl.getStats("516600125649453066").then(stats => {
     console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
  });
-  client.login('NTY0MDkzNDIzNzU0MjgwOTYw.XKi2-A.8NonFn5TRtv_I0IXsS5IBGOeqsM');
+
+client.login('NTY0MDkzNDIzNzU0MjgwOTYw.XKi2-A.8NonFn5TRtv_I0IXsS5IBGOeqsM')
