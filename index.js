@@ -100,7 +100,7 @@ client.emojiler = {
 client.ayarlar = {
         "oynuyor": "?yardım | ?davet | panel.ryker.xyz | İstediğiniz komutları ?tavsiye ile bildiriniz | Destek sunucumuza gelmeyi ve bota oy vermeyi unutmayın. Web paneli AÇILDI!!!",
         "official_sahip": "507803933557915652",
-        "sahip": ['336869318874890241',"487515609815580672", "530706106599866380"],
+        "sahip": ['521315934825349121'],
         "yardimcilar": [''],
         "isim": "RYKER",
         "botD": "https://discordapp.com/oauth2/authorize?client_id=516600125649453066&scope=bot&permissions=2146958847",
@@ -2293,4 +2293,4 @@ client.on('ready', () => {
     console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
  });
 
-client.login('NTY0MDkzNDIzNzU0MjgwOTYw.XKi2-A.8NonFn5TRtv_I0IXsS5IBGOeqsM')
+client.login('NjU5NzMxNTk3OTAxMTY4NjU1.XgSlSg.pOZDZIFnt_s32cLW6Etfu5PgAis')
