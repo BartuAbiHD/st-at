@@ -98,17 +98,10 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "?yardım | ?davet | panel.ryker.xyz | İstediğiniz komutları ?tavsiye ile bildiriniz | Destek sunucumuza gelmeyi ve bota oy vermeyi unutmayın. Web paneli AÇILDI!!!",
-        "official_sahip": "507803933557915652",
-        "sahip": ['521315934825349121'],
-        "yardimcilar": [''],
-        "isim": "RYKER",
-        "botD": "https://discordapp.com/oauth2/authorize?client_id=516600125649453066&scope=bot&permissions=2146958847",
-        "webS": "http://ryker.tk",
-        "web": "https://ryker.tk",
-        "dblO": "https://discordbots.org/bot/516600125649453066/vote",
-        "dbl": "https://discordbots.org/bot/516600125649453066",
-        "dbltoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxNjYwMDEyNTY0OTQ1MzA2NiIsImJvdCI6dHJ1ZSwiaWF0IjoxNTUxNjE4MDEwfQ.k435Nz8LEyG2uMQdtuKBOeDanzLi7u7-O5mFQnnuvRE",
+        "oynuyor": "+yardım | panel.ryker.xyz",
+        "official_sahip": "588397608360345620",
+        "sahip": ['588397608360345620'],
+        "isim": "NonStop",
         "webpanel": "https://gelistirme.glitch.me/",
         "versiyon": "1.0.0",
         "prefix": "?",
@@ -2293,4 +2286,4 @@ client.on('ready', () => {
     console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
  });
 
-client.login('NjU5NzMxNTk3OTAxMTY4NjU1.XgSlSg.pOZDZIFnt_s32cLW6Etfu5PgAis')
+client.login('Njc2MDUyNzA3Mzk5Njk2Mzg0.XkAFSw.b-vfz6ZWSwZCCa7EdWGHdP2WHWA')
