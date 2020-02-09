@@ -98,13 +98,13 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "+yardım | panel.ryker.xyz",
+        "oynuyor": "+yardım | nonstopbotpanel.glitch.me",
         "official_sahip": "588397608360345620",
         "sahip": ['588397608360345620'],
         "isim": "NonStop",
-        "webpanel": "https://gelistirme.glitch.me/",
+        "webpanel": "https://nonstopbotpanel.glitch.me/",
         "versiyon": "1.0.0",
-        "prefix": "?",
+        "prefix": "+",
         "renk":  "DARKBLUE",
         "version":  "1.0.0",
  };
@@ -2286,4 +2286,4 @@ client.on('ready', () => {
     console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
  });
 
-client.login('Njc2MDUyNzA3Mzk5Njk2Mzg0.XkAFSw.b-vfz6ZWSwZCCa7EdWGHdP2WHWA')
+client.login('Njc2MDUyNzA3Mzk5Njk2Mzg0.XkAboA.RELC218vqV2rV0zuq1sbv2l-BmQ')
