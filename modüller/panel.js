@@ -20,9 +20,9 @@ const db = require('quick.db');
 module.exports = (client) => {
   
   const bilgiler = {
-    oauthSecret: "g-tgl0mtaS_mcczTxZ3uXHu273RnrECJ",
-    callbackURL: `https://dashboard-s.glitch.me/callback`,
-    domain: `https://dashboard-s.glitch.me/`
+    oauthSecret: "so_uropQPt8PhsgCbWcXZ-RUHGMja1PT",
+    callbackURL: `https://nonstopbotpanel.glitch.me/callback`,
+    domain: `https://nonstopbotpanel.glitch.me/`
   };
   
   console.log('BAŞARILI')
@@ -147,7 +147,7 @@ module.exports = (client) => {
       res.redirect(`anasayfa`);
     }
     
-    client.channels.get("561273201527619605").send(`**${client.users.get(req.user.id).tag}** adlı kullanıcı Web Paneline Discord hesabıyla giriş yaptı!`)
+    client.channels.get("676097146591903772").send(`**${client.users.get(req.user.id).tag}** İsimli Bir Kullanıcı Web/Yönetim Paneline Discord Hesabıyla Sisteme Giriş Yaptı!`)
 
   });
   

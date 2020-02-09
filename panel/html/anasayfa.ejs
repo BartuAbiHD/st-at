@@ -48,10 +48,8 @@
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active"><a href="/anasayfa" class="nav-link">Ana Sayfa</a></li>     
-        <li class="nav-item"><a href="/istatistikler" class="nav-link">İstatistikler</a></li>
-        <li class="nav-item"><a href="/kullaniciler" class="nav-link">Kullanıcılar</a></li>
-        <li class="nav-item"><a href="/sunucular" class="nav-link">Tüm Sunucular</a></li>
-        <li class="nav-item"><a href="/botuekle" class="nav-link">Botu Sunucuna Ekle</a></li>
+        <li class="nav-item"><a href="/istatistikler" class="nav-link">Bot İstatistikleri</a></li>
+        <li class="nav-item"><a href="/kullaniciler" class="nav-link">Bot Kullanıcıları</a></li>
       </ul>
 
       <ul class="navbar-nav">
@@ -90,7 +88,6 @@
 			<a style="color:#fff" class="nav-link" href="/komutlar" role="button"><i class="fa fa-book fa-fw"></i> Komutlar</a>
 			<% } else { %>
    
-  		<a style="color:#fff" class="nav-link" href="/kullaniciler/<%=user.id%>/yonet" role="button"><i class="fa fa-cogs fa-fw" aria-hidden="true"></i> Seviye Kartını Düzenle
 			<a style="color:#fff" class="nav-link" href="/panel" role="button"><i class="fa fa-cogs fa-fw" aria-hidden="true"></i> Yönetim/Kontrol Paneli
 			<% if(bot.ayarlar.sahip.includes(user.id)) { %>
 			<a style="color:#fff" class="nav-link" href="/yonetici" role="button"><i class="fa fa-key fa-fw" aria-hidden="true"></i> Yönetici Paneli</a><% } %>
