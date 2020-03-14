@@ -1,12 +1,12 @@
 const config = {
-    "ownerID": "588397608360345620", //kendi IDınızı yazınız
-    "admins": ["522863245485408266"],
-    "token": "Njc2MDUyNzA3Mzk5Njk2Mzg0.XkAboA.RELC218vqV2rV0zuq1sbv2l-BmQ", //botunuzun tokenini yazınız
+    "ownerID": "520997295014281228", //kendi IDınızı yazınız
+    "admins": ["520997295014281228"],
+    "token": "NjMwMTAzNzA2NjAzNDg3MjQ0.Xm06kw.MWpVs6NcbaDLhgt0a113mzq0tsw", //botunuzun tokenini yazınız
     "dashboard" : {
-      "oauthSecret": "so_uropQPt8PhsgCbWcXZ-RUHGMja1PT", //botunuzun secretini yazınız
-      "callbackURL": `https://nonstopbotpanel.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
+      "oauthSecret": "zEGTtRNQ4oGR5XW3Hj9XJjbdCfgffmI8", //botunuzun secretini yazınız
+      "callbackURL": `https://denemneneee.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
       "sessionSecret": "xyzxyz", //kalsın
-      "domain": "https://nonstopbotpanel.glitch.me" //site URLnizi yazınız!
+      "domain": "https://denemneneee.glitch.me" //site URLnizi yazınız!
     }
   };
   

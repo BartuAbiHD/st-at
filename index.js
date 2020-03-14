@@ -98,7 +98,7 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "+yardım | nonstopbotpanel.glitch.me",
+        "oynuyor": "+yardım | yakindapanel.glitch.me",
         "official_sahip": "588397608360345620",
         "sahip": ['588397608360345620'],
         "isim": "NonStop",
@@ -2272,18 +2272,5 @@ client.unload = command => {
   };
 });
 
-const DBL = require("dblapi.js");
-const dbl = new DBL(client.ayarlar.dbltoken, client);
 
-
-client.on('ready', () => {
-   setInterval(() => {
-        dbl.postStats(client.guilds.size);
-  }, 1800);
-   });
-
-  dbl.getStats("516600125649453066").then(stats => {
-    console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
- });
-
-client.login('Njc2MDUyNzA3Mzk5Njk2Mzg0.XkAboA.RELC218vqV2rV0zuq1sbv2l-BmQ')
+client.login('NjMwMTAzNzA2NjAzNDg3MjQ0.Xm06uw.f1L_F86O1e9Idlaz0bb96jO_m2U')
