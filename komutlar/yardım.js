@@ -5,11 +5,11 @@ const db = require('quick.db');
 exports.run = async(client, message, args) => {
 
   const embed = new Discord.RichEmbed()
-           .setColor('#7289DA')
+           .setColor('RED')
           .setTimestamp()
-  .setAuthor(`${client.user.username}`, client.user.avatarURL)
-.setFooter(`2020 © ${client.user.username}`, client.user.avatarURL)
-            .addField(`Dikkat!`, `Bot siteden yönetilmektedir. \nBotta bir bug veya hata alırsanız bize bildirmekten çekinmeyin. \n\n[Yönetim Paneli](https://denemneneee.glitch.me/) \n[]()`)
+  .setAuthor(`Hata!`)
+.setFooter(`${client.user.username}`, client.user.avatarURL)
+            .setDescription(`Bot siteden yönetilmektedir. \nBotta bir bug veya hata alırsanız bize bildirmekten çekinmeyin. \n\n[Yönetim Paneli](https://denemneneee.glitch.me/) \n[Destek Sunucusu](https://discord.gg/dqnHfZ)`)
         message.channel.send({embed})
 
 }
@@ -19,13 +19,13 @@ enabled: true,
 guildOnly: true,
 permLevel: 0,
 aliases: ['help', 'y', 'yadrım'],
-kategori: "kullanıcı"
+kategori: "Yardım"
 
 }
 
 exports.help = {
 name: "yardım",
-description: "Sunucuda veya başka bir sunucuda afk olmanızı sağlar ve birisi sizi etiketleyince afk olduğunuzu sebebi ile belirtir.",
-usage: "afk <sebep>"
+description: "Bot hakkında kısa bilgiyi gösterir.",
+usage: "+yardım"
 
 }
