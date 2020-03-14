@@ -58,7 +58,7 @@
             <tbody>
                     <%for(var i = 0; i < bot.cmdd[guild.id].length; i++) {%>
               <tr>
-                  <th scope="row">+<%=Object.keys(bot.cmdd[guild.id][i])%></th>
+                  <th scope="row"><%=Object.keys(bot.cmdd[guild.id][i])%></th>
                   <td><%=bot.cmdd[guild.id][i][Object.keys(bot.cmdd[guild.id][i])]%></td>
                   <td><a class="btn btn-danger" href="/panel/<%=guild.id%>/ozelkomutlar/sil/<%=Object.keys(bot.cmdd[guild.id][i])%>">Komutu Sil</a></td>
                  </tr>
