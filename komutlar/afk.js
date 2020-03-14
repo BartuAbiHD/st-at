@@ -4,10 +4,7 @@ const db = require('quick.db');
 
 exports.run = async(client, message, args) => {
 
-if(!args[0]) return message.channel.send('Lütfen afk olma sebebinizi yazınız.')
-  
-  message.channel.send("``" + args[0] + "`` Sebebi ile afk oldunuz!")
-  db.set(`afks_${message.author.id}`, args[0])
+message.channel.send("Real Code")
 
 }
 
