@@ -21,8 +21,8 @@ module.exports = (client) => {
   
   const bilgiler = {
     oauthSecret: "uxXp5hvVL2-3F3MKXhTnc0zeEMRv7yFf",
-    callbackURL: `https://denemneneee.glitch.me/callback`,
-    domain: `https://denemneneee.glitch.me/`
+    callbackURL: `https://gex.glitch.me/callback`,
+    domain: `https://gex.glitch.me/`
   };
   
   console.log('BAŞARILI')

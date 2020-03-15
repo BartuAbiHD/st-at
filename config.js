@@ -4,9 +4,9 @@ const config = {
     "token": "NjMwMjczNjEwNDM4OTM0NTM0.Xm4K-w.ZrMBLPxsXCMLRTxfLNAxOOt8UI0", //botunuzun tokenini yazınız
     "dashboard" : {
       "oauthSecret": "uxXp5hvVL2-3F3MKXhTnc0zeEMRv7yFf", //botunuzun secretini yazınız
-      "callbackURL": `https://denemneneee.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
+      "callbackURL": `https://gex.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
       "sessionSecret": "xyzxyz", //kalsın
-      "domain": "https://denemneneee.glitch.me" //site URLnizi yazınız!
+      "domain": "https://gex.glitch.me" //site URLnizi yazınız!
     }
   };
   
