@@ -98,7 +98,7 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "+yardım | yakindapanel.glitch.me",
+        "oynuyor": "denemneneee.glitch.me",
         "official_sahip": "520997295014281228",
         "sahip": ['520997295014281228'],
         "isim": "Development",
