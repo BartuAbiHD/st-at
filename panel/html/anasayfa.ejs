@@ -52,7 +52,9 @@
       </ul>
 
       <ul class="navbar-nav">
-        
+          <%if(!user) {%>
+          <li class="nav-item"><a href="/giris" class="nav-link">Giriş Yap</a></li>
+            <%}%>
        <%if(user) {%>
             <li class="dropdown">
             <a href="/anasayfa" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,14 +84,14 @@
   <div class="container">
 	  <div class="jumbotron" style="background-color:#2C2F33">
       <center>
-      <center><h3 style="color:#fff">GEX ile En iyi Discord Sunucusunu oluşturun!</h3></center>
-<center><h6 style="color:lightgrey">Kullanımı en kolay komutlarıyla, Sunucunuzu çok daha fazlası ile yapılandırın! ARTIK YÖNETİM PANELİ İLE!</h6></center>
+      <center><h3 style="color:#fff">En iyi Discord Sunucusunu oluşturun!</h3></center>
+<br><center><h6 style="color:lightgrey">Kullanımı en kolay komutlarıyla, Sunucunuzu çok daha fazlası ile yapılandırın! ARTIK YÖNETİM PANELİ İLE!</h6></center>
         <br> 
         <center>   <a style="background-color: #000; padding: 20px; border-radius: 40px;" href="https://discordapp.com/oauth2/authorize?client_id=630273610438934534&scope=bot&permissions=2146958847" class="site-btn"><b style="color:#fff">Sunucuya Ekle</b></a></center>
 
       
       <% if(!user) { %>
-      <a href="/giris" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-fw fa-user" aria-hidden="true"></i> Giriş yap</button> </a>
+     <!-- <br><br><br><br><br><br><br>  <center>   <a style="background-color: #44b37f; padding: 20px; border-radius: 40px;" href="https://denemneneee.glitch.me/giris" class="site-btn"><b style="color:#fff">Giriş Yap</b></a></center>-->
 			<% } else { %>
    
 			<% if(bot.ayarlar.sahip.includes(user.id)) { %>
@@ -98,4 +100,7 @@
                
        </div>
           </div>
+    
+    
+    
 <%- include('footer.ejs', {bot, user, path}) %>
