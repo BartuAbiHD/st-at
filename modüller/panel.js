@@ -163,7 +163,9 @@ module.exports = (client) => {
 
   });
   
-
+app.get("/moduller", (req, res) => {
+    yukle(res, req, "modüller.ejs");
+  });
 
   app.get("/anasayfa", (req, res) => {
     yukle(res, req, "anasayfa.ejs");
@@ -185,7 +187,7 @@ module.exports = (client) => {
     yukle(res, req, "istatistikler.ejs", {istatistik});
   });
   
-  app.get("/kullaniciler", (req, res) => {
+  app.get("/kullanicilar", (req, res) => {
     yukle(res, req, "kullanıcılar.ejs");
   });
   
