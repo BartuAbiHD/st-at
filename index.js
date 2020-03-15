@@ -94,14 +94,14 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "denemneneee.glitch.me",
+        "oynuyor": "https://gex.glitch.me",
         "official_sahip": "520997295014281228",
         "sahip": ['520997295014281228'],
-        "isim": "Development",
-        "webpanel": "https://denemneneee.glitch.me/",
+        "isim": "GEX",
+        "webpanel": "https://gex.glitch.me/",
         "versiyon": "1.0.0",
         "prefix": "+",
-        "renk":  "DARKBLUE",
+        "renk":  "BLACK",
         "version":  "1.0.0",
  };
 client.avatarURL = `https://cdn.discordapp.com/avatars/630103706603487244/415d440cf55e3339d82edda091bc4869.png?size=2048`
@@ -116,7 +116,17 @@ const log = message => {
   console.log(`${chalk.yellow(`»`)} ${message}`);
 };
 
-
+client.on('message', message => {
+if (message.content === `<@${client.user.id}>`) {
+ const embed = new Discord.RichEmbed()
+           .setColor('RED')
+          .setTimestamp()
+  .setAuthor(`Hata!`)
+.setFooter(`${client.user.username}`, client.user.avatarURL)
+            .setDescription(`Bot siteden yönetilmektedir. \nBotta bir bug veya hata alırsanız bize bildirmekten çekinmeyin. \n\n[Yönetim Paneli](https://denemneneee.glitch.me/) \n[Destek Sunucusu](https://discord.gg/dqnHfZ)`)
+        message.channel.send({embed})
+}
+});
 
 
 
@@ -143,6 +153,7 @@ client.on("ready", async () => {
   
   console.log(`» ${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor.")}`)
   client.user.setStatus("online");
+  client.user.setActivity(client.ayarlar.oynuyor, { type: 'WATCHING' });
   
 })
   //////////////////////////////////////////////////////////////////////////////////////////
