@@ -20,7 +20,7 @@ const db = require('quick.db');
 module.exports = (client) => {
   
   const bilgiler = {
-    oauthSecret: "zEGTtRNQ4oGR5XW3Hj9XJjbdCfgffmI8",
+    oauthSecret: "uxXp5hvVL2-3F3MKXhTnc0zeEMRv7yFf",
     callbackURL: `https://denemneneee.glitch.me/callback`,
     domain: `https://denemneneee.glitch.me/`
   };
