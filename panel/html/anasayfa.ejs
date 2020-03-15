@@ -35,7 +35,7 @@
   
   <body>
     
-  <nav style="background-color:#2a2d32" class="navbar navbar-expand-lg navbar-dark">
+  <nav style="background-color:#2C2F33" class="navbar navbar-expand-lg navbar-dark">
      <div class="container">
       <a class="navbar-brand" href="/anasayfa"><img src="https://cdn.discordapp.com/avatars/<%=bot.user.id%>/<%=bot.user.avatar%>.png" width="30" height="30"
           class="d-inline-block align-top rounded-circle" alt=""></a>
@@ -58,7 +58,7 @@
             <a href="/anasayfa" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt=""> <%=user.username%>
            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="background-color:#17181b">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="background-color:#2a2d32">
               <a class="dropdown-item" href="/panel" style="color:#a6aab5"><i aria-hidden="true"></i>Sunucularım</a>
               <% if(bot.ayarlar.sahip.includes(user.id)) { %>
 						  <a class="dropdown-item" href="/yonetici" style="color:#a6aab5"><i aria-hidden="true"></i>Yönetici Paneli</a>
@@ -74,11 +74,16 @@
 <!-- HEADER -->
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
   <div class="container">
-	  <div class="jumbotron" style="background-color:#33383b">
+	  <div class="jumbotron" style="background-color:#2C2F33">
       <center>
-      <img src="<%= bot.avatarURL %>" width="100" height="100" class="d-inline-block align-top rounded-circle" alt="Bot Avatar">
-      <h3 style="color:#fff"><%= bot.user.username %></h3>
+      <center><h3 style="color:#fff">GEX ile En iyi Discord Sunucusunu oluşturun!</h3></center>
+<center><h6 style="color:lightgrey">Kullanımı en kolay komutlarıyla, Sunucunuzu çok daha fazlası ile yapılandırın! ARTIK YÖNETİM PANELİ İLE!</h6></center>
         
       
       <% if(!user) { %>
