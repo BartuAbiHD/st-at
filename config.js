@@ -1,9 +1,9 @@
 const config = {
     "ownerID": "520997295014281228", //kendi IDınızı yazınız
     "admins": ["520997295014281228"],
-    "token": "NjMwMTAzNzA2NjAzNDg3MjQ0.Xm4Gww.heytMky3Ysn3eEHc7MZkd05pG7I", //botunuzun tokenini yazınız
+    "token": "NjMwMjczNjEwNDM4OTM0NTM0.Xm4K-w.ZrMBLPxsXCMLRTxfLNAxOOt8UI0", //botunuzun tokenini yazınız
     "dashboard" : {
-      "oauthSecret": "zEGTtRNQ4oGR5XW3Hj9XJjbdCfgffmI8", //botunuzun secretini yazınız
+      "oauthSecret": "uxXp5hvVL2-3F3MKXhTnc0zeEMRv7yFf", //botunuzun secretini yazınız
       "callbackURL": `https://denemneneee.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
       "sessionSecret": "xyzxyz", //kalsın
       "domain": "https://denemneneee.glitch.me" //site URLnizi yazınız!

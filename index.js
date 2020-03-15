@@ -152,98 +152,6 @@ client.on("ready", async () => {
   //////////////////////////////////////////////////////////////////////////////////////////
   
   
- 
-
-
-
-
-
-
-
-/*
-client.on('guildMemberAdd', async member => {
- 
-  //	let kanal = await db.fetch(`hgKanal2_${member.guild.id}`)
-   //  if (!kanal) return
-  const Canvas = require('canvas')
-	const canvas = Canvas.createCanvas(900, 280);
-	const ctx = canvas.getContext('2d');
-
-	const background = await Canvas.loadImage('https://pngimg.com/uploads/alien/alien_PNG103.png');
-	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-	ctx.strokeStyle = '#74037b';
-	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-
-	// Add an exclamation point here and below
-	ctx.font = applyText(canvas, `${member.user.tag}`);
-	ctx.fillStyle = '#ffffff';
-	ctx.fillText(`${member.user.tag}`, canvas.width / 3.7, canvas.height / 1.8);
-
-	ctx.beginPath();
-	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
-	ctx.closePath();
-	ctx.clip();
-
-	const { body: buffer } = await snekfetch.get(member.user.displayAvatarURL || member.user.defaultAvatarURL);
-	const avatar = await Canvas.loadImage(buffer);
-	ctx.drawImage(avatar, 25, 25, 200, 200);
-
-	const attachment = new Discord.Attachment(canvas.toBuffer(), 'MEETRHosgeldin.png');
-
-	member.guild.channels.get('531535859594297364').send(`Sunucuya hoşgeldin, ${member}!`, attachment);
-});
-
-
-client.on('guildMemberRemove', async member => {
-  
-	//let kanal = await db.fetch(`hgKanal2_${member.guild.id}`)
-    //if (!kanal) return
-    const Canvas = require('canvas')
-	const canvas = Canvas.createCanvas(900, 280);
-	const ctx = canvas.getContext('2d');
-
-	const background = await Canvas.loadImage('https://pngimg.com/uploads/alien/alien_PNG103.png');
-	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-	ctx.strokeStyle = '#74037b';
-	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-
-	// Add an exclamation point here and below
-	ctx.font = applyText(canvas, `${member.user.tag}`);
-	ctx.fillStyle = '#ffffff';
-	ctx.fillText(`${member.user.tag}`, canvas.width / 3.7, canvas.height / 1.8);
-
-	ctx.beginPath();
-	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
-	ctx.closePath();
-	ctx.clip();
-
-	const { body: buffer } = await snekfetch.get(member.user.displayAvatarURL || member.user.defaultAvatarURL);
-	const avatar = await Canvas.loadImage(buffer);
-	ctx.drawImage(avatar, 25, 25, 200, 200);
-
-	const attachment = new Discord.Attachment(canvas.toBuffer(), 'MEETRGuleGule.png');
-
-	member.guild.channels.get('531535859594297364').send(`Güle güle, **${member.user.tag}**`, attachment);
-});
-
-
-const applyText = (canvas, text) => {
-    const ctx = canvas.getContext('2d');
-
-    let fontSize = 54;
-
-    do {
-  
-    ctx.font = `${fontSize -= 2}px Helvetica`;
-    } while (ctx.measureText(text).width > canvas.width - 111);
-
-    return ctx.font;
-};
-
-*/
-
 
 
 
@@ -510,8 +418,6 @@ client.on("guildDelete", async guild => {
   .setFooter(`${client.user.username} | Sunucu İzleyici`, client.user.avatarURL)
   guildhook.send(server);
 })
-
-client.on("message", async msg => {
   //////////////////////////////////////////////////////////////////////////////////////////
   
   
@@ -520,6 +426,7 @@ client.on("message", async msg => {
  
 
   //////////////////////////////////////////////////////////////////////////////////////////
+  client.on("message", async msg => {
   const prefix = await db.fetch(`prefix_${msg.guild.id}`) || client.ayarlar.prefix;
   //const args = msg.content.slice.split(' ');
   const args = msg.content.trim().split(/ +/g);
@@ -539,7 +446,7 @@ client.on("message", async msg => {
     msg.delete()
      
    var k = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor("BLACK")
         .setAuthor("Filtre Sistemi")
         .setDescription(`Bu sunucuda yasaklanmış bir kelimeyi kullandınız, bu yüzden mesajınızı sildim.`)
         msg.channel.send(k).then(message => message.delete(5000));
@@ -576,7 +483,7 @@ client.on("message", async msg => {
       msg.delete()
        msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete(5000));
         var k = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor("BLACK")
         .setAuthor("Küfür Engeli!")
         .setDescription(`Bu sunucuda küfürler **${client.user.username}** tarafından engellenmektedir! Küfür etmene izin vermeyeceğim!`)
         msg.channel.send(k).then(message => message.delete(5000));
@@ -592,7 +499,7 @@ client.on("message", async msg => {
           msg.delete()
            msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete(5000));
             var ke = new Discord.RichEmbed()
-            .setColor("RANDOM")
+        .setColor("BLACK")
             .setAuthor("link Engeli!")
             .setDescription(`Bu sunucuda linkler **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`)
             msg.channel.send(ke).then(message => message.delete(5000));
@@ -628,7 +535,7 @@ client.on("messageUpdate", async (msg) => {
     msg.delete()
      
    var k = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor("BLACK")
         .setAuthor("Filtre Sistemi")
         .setDescription(`Bu sunucuda yasaklanmış bir kelimeyi kullandınız, bu yüzden mesajınızı sildim.`)
         msg.channel.send(k).then(message => message.delete(5000));
@@ -665,7 +572,7 @@ client.on("messageUpdate", async (msg) => {
       msg.delete()
        msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete(5000));
         var k = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor("BLACK")
         .setAuthor("Küfür Engeli!")
         .setDescription(`Bu sunucuda küfürler **${client.user.username}** tarafından engellenmektedir! Küfür etmene izin vermeyeceğim!`)
         msg.channel.send(k).then(message => message.delete(5000));
@@ -681,7 +588,7 @@ client.on("messageUpdate", async (msg) => {
           msg.delete()
            msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete(5000));
             var ke = new Discord.RichEmbed()
-            .setColor("RANDOM")
+        .setColor("BLACK")
             .setAuthor("Link Engeli!")
             .setDescription(`Bu sunucuda linkler **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`)
             msg.channel.send(ke).then(message => message.delete(5000));
@@ -704,12 +611,7 @@ client.on("message", async message => {
   
     if(db.has(`sayac_${message.guild.id}`) === true) {
         if(db.fetch(`sayac_${message.guild.id}`) <= message.guild.members.size) {
-            const embed = new Discord.RichEmbed()
-            .setTitle(`Tebrikler ${message.guild.name}!`)
-            .setDescription(`Başarıyla \`${db.fetch(`sayac_${message.guild.id}`)}\` kullanıcıya ulaştık! Sayaç sıfırlandı!`)
-            .setColor("RANDOM")
-            message.channel.send({embed})
-            message.guild.owner.send({embed})
+            message.channel.send(`Başarıyla \`${db.fetch(`sayac_${message.guild.id}`)}\` kullanıcıya ulaştık! Sayaç sıfırlandı!`)
             db.delete(`sayac_${message.guild.id}`)
         }
     }
@@ -807,24 +709,24 @@ client.on("message", async message => {
     var voiceChannel = message.member.voiceChannel;
         
     const embed = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription("Dinlemek istediğin şarkıyı yazmalısın! (Şarkı ismi veya Youtube URLsi)")
     if (!url) return message.channel.send(embed);
         
     const voiceChannelAdd = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Lütfen herhangi bir sesli kanala katılınız.`)
     if (!voiceChannel) return message.channel.send(voiceChannelAdd);
     var permissions = voiceChannel.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT')) {
       const warningErr = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Herhangi bir sesli kanala katılabilmek için yeterli iznim yok.`)
       return message.channel.send(warningErr);
     }
     if (!permissions.has('SPEAK')) {
       const musicErr = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Müzik açamıyorum/şarkı çalamıyorum çünkü kanalda konuşma iznim yok veya mikrofonum kapalı.`)
       return message.channel.send(musicErr);
     }
@@ -836,7 +738,7 @@ client.on("message", async message => {
         await handleVideo(video2, message, voiceChannel, true);
       }
       const PlayingListAdd = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) İsimli şarkı oynatma listesine Eklendi.`)
       return message.channel.send(PlayingListAdd);
     } else {
@@ -852,7 +754,7 @@ client.on("message", async message => {
         } catch (err) {
           console.error(err);
           const songNope = new RichEmbed()
-          .setColor("RANDOM")
+    .setColor("BLACK")
           .setDescription(`Aradığınız isimde bir şarkı bulamadım.`) 
           return message.channel.send(songNope);
         }
@@ -862,11 +764,11 @@ client.on("message", async message => {
     break
        case "tekrar":
        const e = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`) 
     if (!message.member.voiceChannel) return message.channel.send(e);
     const p = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(p);
         
@@ -877,22 +779,22 @@ client.on("message", async message => {
       var vi2 = await youtube.getVideoByID(u.id);
       await handleVideo(vi2, message, voiceChannel, true);
     const PlayingListAdd = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`[${u.title}](https://www.youtube.com/watch?v=${u.id}) İsimli şarkı bitince tekrar oynatılacak.`)
     return message.channel.send(PlayingListAdd);
         
     break;
       case "geç":
       const err0 = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`) 
     if (!message.member.voiceChannel) return message.channel.send(err0);
     const err05 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(err05);
     const songSkip = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla geçildi!`)
     serverQueue.connection.dispatcher.end('');
     message.channel.send(songSkip)
@@ -900,16 +802,16 @@ client.on("message", async message => {
 break;
       case "durdur":
     const err1 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Bir sesli kanalda değilsin.`)  
     if (!message.member.voiceChannel) return message.channel.send(err1);
     const err2 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(err2);
     serverQueue.songs = [];
     const songEnd = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla durduruldu ve odadan ayrıldım!`)
     serverQueue.connection.dispatcher.end('');
     message.channel.send(songEnd);
@@ -917,11 +819,11 @@ break;
 break;
       case "ses":
       const asd1 = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`)  
     if (!message.member.voiceChannel) return message.channel.send(asd1);
     const asd2 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(asd2);
 
@@ -930,25 +832,25 @@ break;
     if (args[1] > 10) return message.channel.send(`Ses seviyesi en fazla \`10\` olarak ayarlanabilir.`)
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
     const volumeLevelEdit = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Ayarlanan Ses Seviyesi: **${args[1]}**`)
     return message.channel.send(volumeLevelEdit);
 break;
       case "kuyruk":
       var siralama = 0;
         const a = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`)  
     if (!message.member.voiceChannel) return message.channel.send(a);
     const b = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(b);
         
     var k = serverQueue.songs.map(song => `${++siralama} - [${song.title}](https://www.youtube.com/watch?v=${song.id})`).join('\n').replace(serverQueue.songs[0].title, `**${serverQueue.songs[0].title}**`)
         
     const kuyruk = new Discord.RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .addField("Şarkı Kuyruğu", k)
     return message.channel.send(kuyruk)
 break;
@@ -957,7 +859,7 @@ case "duraklat":
         serverQueue.playing = false;
         serverQueue.connection.dispatcher.pause();
         const asjdhsaasjdha = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla duraklatıldı!`)
       return message.channel.send(asjdhsaasjdha);
     }
@@ -968,7 +870,7 @@ break;
         serverQueue.playing = true;
         serverQueue.connection.dispatcher.resume();
         const asjdhsaasjdhaadssad = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla devam ettiriliyor...`)
       return message.channel.send(asjdhsaasjdhaadssad);
     }
@@ -1019,7 +921,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     if (playlist) return undefined;
 
     const songListBed = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) isimli şarkı kuyruğa eklendi!`)
     return message.channel.send(songListBed);
   }
@@ -1047,7 +949,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   
   const playingBed = new RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Şuanda Oynatılıyor`, "https://davidjhinson.files.wordpress.com/2015/05/youtube-icon.png")
   .setDescription(`[${song.title}](${song.url})`)
   .addField("Şarkı Süresi", `${song.durationm}:${song.durations}`, true)
@@ -1079,24 +981,24 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     var voiceChannel = message.member.voiceChannel;
         
     const embed = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription("Dinlemek istediğin şarkıyı yazmalısın! (Şarkı ismi veya Youtube URLsi)")
     if (!url) return message.channel.send(embed);
         
     const voiceChannelAdd = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Lütfen herhangi bir sesli kanala katılınız.`)
     if (!voiceChannel) return message.channel.send(voiceChannelAdd);
     var permissions = voiceChannel.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT')) {
       const warningErr = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Herhangi bir sesli kanala katılabilmek için yeterli iznim yok.`)
       return message.channel.send(warningErr);
     }
     if (!permissions.has('SPEAK')) {
       const musicErr = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Müzik açamıyorum/şarkı çalamıyorum çünkü kanalda konuşma iznim yok veya mikrofonum kapalı.`)
       return message.channel.send(musicErr);
     }
@@ -1108,7 +1010,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
         await handleVideo(video2, message, voiceChannel, true);
       }
       const PlayingListAdd = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) İsimli şarkı oynatma listesine Eklendi.`)
       return message.channel.send(PlayingListAdd);
     } else {
@@ -1124,7 +1026,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
         } catch (err) {
           console.error(err);
           const songNope = new RichEmbed()
-          .setColor("RANDOM")
+    .setColor("BLACK")
           .setDescription(`Aradığınız isimde bir şarkı bulamadım.`) 
           return message.channel.send(songNope);
         }
@@ -1134,7 +1036,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     break
        case "tekrar":
        const e = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`) 
     if (!message.member.voiceChannel) return message.channel.send(e);
     const p = new RichEmbed()
@@ -1149,22 +1051,22 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
       var vi2 = await youtube.getVideoByID(u.id);
       await handleVideo(vi2, message, voiceChannel, true);
     const PlayingListAdd = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`[${u.title}](https://www.youtube.com/watch?v=${u.id}) İsimli şarkı bitince tekrar oynatılacak.`)
     return message.channel.send(PlayingListAdd);
         
     break;
       case "geç":
       const err0 = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`) 
     if (!message.member.voiceChannel) return message.channel.send(err0);
     const err05 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(err05);
     const songSkip = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla geçildi!`)
     serverQueue.connection.dispatcher.end('');
     message.channel.send(songSkip)
@@ -1172,16 +1074,16 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 break;
       case "durdur":
     const err1 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Bir sesli kanalda değilsin.`)  
     if (!message.member.voiceChannel) return message.channel.send(err1);
     const err2 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(err2);
     serverQueue.songs = [];
     const songEnd = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla durduruldu ve odadan ayrıldım!`)
     serverQueue.connection.dispatcher.end('');
     message.channel.send(songEnd);
@@ -1189,11 +1091,11 @@ break;
 break;
       case "ses":
       const asd1 = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`)  
     if (!message.member.voiceChannel) return message.channel.send(asd1);
     const asd2 = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(asd2);
 
@@ -1202,25 +1104,25 @@ break;
     if (args[1] > 10) return message.channel.send(`Ses seviyesi en fazla \`10\` olarak ayarlanabilir.`)
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
     const volumeLevelEdit = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Ayarlanan Ses Seviyesi: **${args[1]}**`)
     return message.channel.send(volumeLevelEdit);
 break;
       case "kuyruk":
       var siralama = 0;
         const a = new RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setDescription(`Bir sesli kanalda değilsin.`)  
     if (!message.member.voiceChannel) return message.channel.send(a);
     const b = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
     if (!serverQueue) return message.channel.send(b);
         
     var k = serverQueue.songs.map(song => `${++siralama} - [${song.title}](https://www.youtube.com/watch?v=${song.id})`).join('\n').replace(serverQueue.songs[0].title, `**${serverQueue.songs[0].title}**`)
         
     const kuyruk = new Discord.RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .addField("Şarkı Kuyruğu", k)
     return message.channel.send(kuyruk)
 break;
@@ -1229,7 +1131,7 @@ case "duraklat":
         serverQueue.playing = false;
         serverQueue.connection.dispatcher.pause();
         const asjdhsaasjdha = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla duraklatıldı!`)
       return message.channel.send(asjdhsaasjdha);
     }
@@ -1240,7 +1142,7 @@ break;
         serverQueue.playing = true;
         serverQueue.connection.dispatcher.resume();
         const asjdhsaasjdhaadssad = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`Şarkı başarıyla devam ettiriliyor...`)
       return message.channel.send(asjdhsaasjdhaadssad);
     }
@@ -1291,7 +1193,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     if (playlist) return undefined;
 
     const songListBed = new RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) isimli şarkı kuyruğa eklendi!`)
     return message.channel.send(songListBed);
   }
@@ -1319,7 +1221,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   
   const playingBed = new RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Şuanda Oynatılıyor`, "https://davidjhinson.files.wordpress.com/2015/05/youtube-icon.png")
   .setDescription(`[${song.title}](${song.url})`)
   .addField("Şarkı Süresi", `${song.durationm}:${song.durations}`, true)
@@ -1437,7 +1339,7 @@ client.on('message', async msg => {
       });
 
       const embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setAuthor(`${client.user.username} | Destek Sistemi`, client.user.avatarURL)
       .setTitle(`_Merhaba ${msg.author.username}!_`)
       .addField(`» Destek Talebi Hakkında Bilgilendirme «`, `Yetkililerimiz en yakın zamanda burada sorunun ile ilgilenecektir! \nDestek talebini kapatmak için \`${prefix}kapat\` yazabilir, \nSunucudaki tüm Destek Taleplerini kapatmak için ise \`${prefix}talepleri-kapat\` yazabilirsin!`)
@@ -1479,7 +1381,7 @@ client.on('message', async msg => {
       });
 
       const embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
+    .setColor("BLACK")
       .setAuthor(`${client.user.username} | Destek Sistemi`, client.user.avatarURL)
       .setTitle(`_Merhaba ${msg.author.username}!_`)
      .addField(`» Destek Talebi Hakkında Bilgilendirme «`, `Yetkililerimiz en yakın zamanda burada sorunun ile ilgilenecektir! \nDestek talebini kapatmak için \`${prefix}kapat\` yazabilir, \nSunucudaki tüm Destek Taleplerini kapatmak için ise \`${prefix}talepleri-kapat\` yazabilirsin!`)
@@ -1514,7 +1416,7 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
   if (!message.channel.name.startsWith(`${client[dil].desteksistem.talep}-`)) return message.channel.send(`Bu komut sadece Destek Talebi kanallarında kullanılabilir.`);
 
   const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Destek Talebi Kapatma İşlemi!`)
   .setDescription(`Destek talebini kapatma işlemini onaylamak için, \n10 saniye içinde \`evet\` yazınız.`)
   .setFooter(`${client.user.username} | Destek Sistemi`, client.user.avatarURL)
@@ -1535,229 +1437,8 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
       });
   });
   }
-  //////////////////////////////////////////////////////////////////////////////////////////
-
-  
-  //if (!message.guild) return;
-  
- // let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
-  
-
-  // const dil = s
-  
-  
-  
-});
-
-//log sistemi
-
-//let logA = JSON.parse(fs.readFileSync("./jsonlar/log.json", "utf8"));
-//////////////////////////////////////////////////////////////////////////////////////////
-client.on("guildMemberAdd", member => {
-  
-  //if (member.author.bot) return;
-  
- // if (!logA[member.guild.id]) return;
-  
-  var user = member.user;
-  var tarih = ''
-			if(moment(user.createdAt).format('MM') === '01') {
-				var tarih = `${moment(user.createdAt).format('DD')} Ocak ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '02') {
-				var tarih = `${moment(user.createdAt).format('DD')} Şubat ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '03') {
-				var tarih = `${moment(user.createdAt).format('DD')} Mart ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '04') {
-				var tarih = `${moment(user.createdAt).format('DD')} Nisan ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '05') {
-				var tarih = `${moment(user.createdAt).format('DD')} Mayıs ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '06') {
-				var tarih = `${moment(user.createdAt).format('DD')} Haziran ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '07') {
-				var tarih = `${moment(user.createdAt).format('DD')} Temmuz ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '08') {
-				var tarih = `${moment(user.createdAt).format('DD')} Ağustos ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '09') {
-				var tarih = `${moment(user.createdAt).format('DD')} Eylül ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '10') {
-				var tarih = `${moment(user.createdAt).format('DD')} Ekim ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '11') {
-				var tarih = `${moment(user.createdAt).format('DD')} Kasım ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '12') {
-				var tarih = `${moment(user.createdAt).format('DD')} Aralık ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-  
-  var tarih2 = ''
-			if(moment(user.joinedAt).format('MM') === '01') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Ocak ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '02') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Şubat ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '03') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Mart ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '04') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Nisan ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '05') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Mayıs ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '06') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Haziran ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '07') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Temmuz ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '08') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Ağustos ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '09') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Eylül ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '10') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Ekim ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '11') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Kasım ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '12') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Aralık ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-  
-  //var kanal = member.guild.channels.get(logA[member.guild.id].log);
-  
-  if (db.has(`log_${member.guild.id}`) === false) return;
-  
-  var kanal = member.guild.channels.get(db.fetch(`log_${member.guild.id}`))
-  if (!kanal) return;
-  
-  const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setAuthor(`Sunucuya Bir Kullanıcı Katıldı!`, member.user.avatarURL)
-  .addField("Kullanıcı Tag", member.user.tag, true)
-  .addField("ID", member.user.id, true)
-  .addField("Discord Kayıt Tarihi", tarih, true)
-  .addField("Sunucuya Katıldığı Tarih", tarih2, true)
-  .setThumbnail(member.user.avatarURL)
-  kanal.send(embed);
-  
-});
-
-client.on("guildMemberRemove", member => {
-  
-  //if (member.author.bot) return;
-  
- // if (!logA[member.guild.id]) return;
-  
-  var user = member.user;
-  var tarih = ''
-			if(moment(user.createdAt).format('MM') === '01') {
-				var tarih = `${moment(user.createdAt).format('DD')} Ocak ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '02') {
-				var tarih = `${moment(user.createdAt).format('DD')} Şubat ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '03') {
-				var tarih = `${moment(user.createdAt).format('DD')} Mart ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '04') {
-				var tarih = `${moment(user.createdAt).format('DD')} Nisan ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '05') {
-				var tarih = `${moment(user.createdAt).format('DD')} Mayıs ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '06') {
-				var tarih = `${moment(user.createdAt).format('DD')} Haziran ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '07') {
-				var tarih = `${moment(user.createdAt).format('DD')} Temmuz ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '08') {
-				var tarih = `${moment(user.createdAt).format('DD')} Ağustos ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '09') {
-				var tarih = `${moment(user.createdAt).format('DD')} Eylül ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '10') {
-				var tarih = `${moment(user.createdAt).format('DD')} Ekim ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '11') {
-				var tarih = `${moment(user.createdAt).format('DD')} Kasım ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.createdAt).format('MM') === '12') {
-				var tarih = `${moment(user.createdAt).format('DD')} Aralık ${moment(user.createdAt).format('YYYY HH:mm:ss')} `
-			}
-  
-  var tarih2 = ''
-			if(moment(user.joinedAt).format('MM') === '01') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Ocak ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '02') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Şubat ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '03') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Mart ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '04') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Nisan ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '05') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Mayıs ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '06') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Haziran ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '07') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Temmuz ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '08') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Ağustos ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '09') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Eylül ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '10') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Ekim ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '11') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Kasım ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-			if(moment(user.joinedAt).format('MM') === '12') {
-				var tarih2 = `${moment(user.joinedAt).format('DD')} Aralık ${moment(user.joinedAt).format('YYYY HH:mm:ss')} `
-			}
-  
-  //var kanal = member.guild.channels.get(logA[member.guild.id].log);
-  
-  if (db.has(`log_${member.guild.id}`) === false) return;
-  
-  var kanal = member.guild.channels.get(db.fetch(`log_${member.guild.id}`))
-  if (!kanal) return;
-  
-  const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setAuthor(`Sunucudan Bir Kullanıcı Ayrıldı!`, member.user.avatarURL)
-  .addField("Kullanıcı Tag", member.user.tag, true)
-  .addField("ID", member.user.id, true)
-  .addField("Discord Kayıt Tarihi", tarih, true)
-  .addField("Sunucuya Katıldığı Tarih", tarih2, true)
-  .setThumbnail(member.user.avatarURL)
-  kanal.send(embed);
-  
 });
 //////////////////////////////////////////////////////////////////////////////////////////
-
 
 
 
@@ -1786,7 +1467,7 @@ db.set(`mesaj_${message.channel.id}`, message.content)
   if (!kanal) return;
   
   const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Bir Mesaj Silindi!`, message.author.avatarURL)
   .addField("Kullanıcı Tag", message.author.tag, true)
   .addField("ID", message.author.id, true)
@@ -1812,7 +1493,7 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   if (!kanal) return;
   
   const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Bir Mesaj Düzenlendi!`, oldMsg.author.avatarURL)
   .addField("Kullanıcı Tag", oldMsg.author.tag, true)
   .addField("ID", oldMsg.author.id, true)
@@ -1833,7 +1514,7 @@ client.on("roleCreate", role => {
   if (!kanal) return;
   
   const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Bir Rol Oluşturuldu!`, role.guild.iconURL)
   .addField("Rol", `\`${role.name}\``, true)
   .addField("Rol Rengi Kodu", `${role.hexColor}`, true)
@@ -1851,7 +1532,7 @@ client.on("roleDelete", role => {
   if (!kanal) return;
   
   const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Bir Rol Kaldırıldı!`, role.guild.iconURL)
   .addField("Rol", `\`${role.name}\``, true)
   .addField("Rol Rengi Kodu", `${role.hexColor}`, true)
@@ -1869,7 +1550,7 @@ client.on("roleUpdate", role => {
   if (!kanal) return;
   
   const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+    .setColor("BLACK")
   .setAuthor(`Bir Rol Güncellendi!`, role.guild.iconURL)
   .addField("Rol", `\`${role.name}\``, true)
   .addField("Rol Rengi Kodu", `${role.hexColor}`, true)
@@ -1892,14 +1573,14 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
     const embed = new Discord.RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`${newMember.user.tag} adlı kullanıcı \`${newUserChannel.name}\` isimli sesli kanala giriş yaptı!`)
     kanal.send(embed);
     
   } else if(newUserChannel === undefined){
 
     const embed = new Discord.RichEmbed()
-    .setColor("RANDOM")
+    .setColor("BLACK")
     .setDescription(`${newMember.user.tag} adlı kullanıcı bir sesli kanaldan çıkış yaptı!`)
     kanal.send(embed);
     
@@ -2031,38 +1712,6 @@ message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının profil
       message.channel.stopTyping()
     }
 
-  /*
-    if (command === 'rütbe' || command === 'rank') {
-      message.channel.startTyping()
-        var user = message.mentions.users.first() || message.author;
-        let membername = await db.fetch(`membername_${user.id}`);
-        if (membername == null) membername = `${user.tag}`
-				const bg = await Jimp.read("https://cdn.discordapp.com/attachments/458732340491845633/482242581040988160/fadawdawdawd.png");
-				const userimg = await Jimp.read(user.avatarURL);
-				var font;
-				if (user.tag.length < 12) font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
-				else if (user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
-				else font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
-				var font2;
-				if (user.tag.length < 15) font2 = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
-				else if (user.tag.length > 15) font2 = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
-				else font2 = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
-				await bg.print(font2, 100, 75, `GP: ${userData.points}`);
-				await bg.print(font2, 100, 55, `Level: ${userData.level}`);
-				await bg.print(font, 103, 10, membername);
-				await userimg.resize(90, 90);
-				await (!userimg.resize(90, 90));
-        await bg.composite(userimg, 5, 5).write("./img/rank/" + client.user.id + "-" + user.id + ".png");
-				  setTimeout(function () {
-message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının rütbe kartı**`)
-						message.channel.send(new Discord.Attachment("./img/rank/" + client.user.id + "-" + user.id + ".png"));
-				  }, 1000);
-				  setTimeout(function () {
-					fs.unlink("./img/rank/" + client.user.id + "-" + user.id + ".png");
-				  }, 10000);
-      message.channel.stopTyping()
-    }
-    */
 
     if (command === "bioayarla" || command === "biyografi" || command === "biyografi-ayarla" || command === "hakkında") {
 
@@ -2287,4 +1936,4 @@ client.unload = command => {
 
 
 
-client.login('NjMwMTAzNzA2NjAzNDg3MjQ0.Xm4Gww.heytMky3Ysn3eEHc7MZkd05pG7I')
+client.login('NjMwMjczNjEwNDM4OTM0NTM0.Xm4K-w.ZrMBLPxsXCMLRTxfLNAxOOt8UI0')
