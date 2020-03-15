@@ -104,7 +104,7 @@ client.ayarlar = {
         "renk":  "BLACK",
         "version":  "1.0.0",
  };
-client.avatarURL = `https://cdn.discordapp.com/avatars/630103706603487244/415d440cf55e3339d82edda091bc4869.png?size=2048`
+client.avatarURL = `https://cdn.discordapp.com/avatars/630273610438934534/68c7b404c8bd361aa5155e17f5156bf0.png?size=2048`
 const ayarlar = client.ayarlar;
 
 client.tr = require('./tr.js');
