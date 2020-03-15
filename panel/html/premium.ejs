@@ -74,37 +74,12 @@
       </div>
   </nav>
       
-<!--HEADER-->
-    
-<div class="container">
-	<div class="jumbotron" style="background-color:#1c1c1c">
-    <div align="center">
-    
-    <h2 align="center"><b><%=sunucu.name%> - Rol Listesi</b></h2>
-    <br>
-<table>
-  <tr>
-    <th>Adı</th>
-    <th>ID</th>
-    <th>Sahip üye sayısı</th>
-    <th>Renk Kodu</th>
-    <th>Etiketlenebilir mi?</th>
-    <th>Oluşturulduğu tarih</th>
-  <>
-<% sunucu.roles.filter(r => r.name !== "@everyone").forEach(r => { %>
-  <tr>
-    <td style="color:<%=r.hexColor%>"><%=r.name%></td>
-    <td><%=r.id%></td>
-    <td><%=r.members.size%></td>
-    <td><%=r.hexColor%></td>
-    <td><%=r.mentionable ? "Evet" : "Hayır"%></td>
-    <td><%=bot.useful.tarih(r.createdAt)%></td>
-  <>
-<% }); %>
-</table>
-    
+    <div class="container">
+  <div class="jumbotron" style="background-color:#2C2F33">
+    <div align="left">
+      <h4 style="color:#fff">PREMİUM</h4><br>
+
     </div>
   </div>
 </div>
-
-<%- include('footer.ejs', {bot, user, path}) %>
+    <%- include('footer.ejs', {bot, user, path}) %>

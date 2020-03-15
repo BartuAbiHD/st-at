@@ -170,6 +170,10 @@ app.get("/moduller", (req, res) => {
   app.get("/lisans", (req, res) => {
     yukle(res, req, "lisans.ejs");
   });
+  
+   app.get("/premium", (req, res) => {
+    yukle(res, req, "premium.ejs");
+  });
 
   app.get("/anasayfa", (req, res) => {
     yukle(res, req, "anasayfa.ejs");
