@@ -78,7 +78,7 @@
 <div class="container">
   <div class="jumbotron" style="background-color:#2C2F33">
     <div align="center">
-    <center><h5 style="color:#fff">LÜTFEN BİR SUNUCU SEÇ</h5></center>      <br>
+    <center><h4 style="color:#fff">LÜTFEN BİR SUNUCU SEÇ</h4></center>      <br>
       <% user.guilds.forEach((sunucu) => {
         const permsOnGuild = new perms(sunucu.permissions);
         if(!permsOnGuild.has("MANAGE_GUILD")) return;

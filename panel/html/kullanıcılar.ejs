@@ -78,7 +78,7 @@
 <div class="container">
   <div class="jumbotron" style="background-color:#2C2F33">
     <div align="center">
-      <h3>Botun görebildiği kullanıcılar</h3>
+      <h4 style="color:#fff">BOTU KULLANAN KİŞİLER</h4><br>
       
       <% bot.users.filter(u=>u.id!==bot.user.id).forEach((kullanici) => { %>
       <% let link = `/kullaniciler/${kullanici.id}` %>
