@@ -94,7 +94,7 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "https://gex.glitch.me",
+        "oynuyor": "https://gex.glitch.me | +yardım",
         "official_sahip": "520997295014281228",
         "sahip": ['520997295014281228'],
         "isim": "GEX",
