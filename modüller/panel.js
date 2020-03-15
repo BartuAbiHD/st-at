@@ -166,6 +166,10 @@ module.exports = (client) => {
 app.get("/moduller", (req, res) => {
     yukle(res, req, "modüller.ejs");
   });
+  
+  app.get("/lisans", (req, res) => {
+    yukle(res, req, "lisans.ejs");
+  });
 
   app.get("/anasayfa", (req, res) => {
     yukle(res, req, "anasayfa.ejs");
