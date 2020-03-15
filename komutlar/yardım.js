@@ -9,7 +9,8 @@ exports.run = async(client, message, args) => {
           .setTimestamp()
   .setAuthor(`Hata!`)
 .setFooter(`${client.user.username}`, client.user.avatarURL)
-            .setDescription(`Bot siteden yönetilmektedir. \nBotta bir bug veya hata alırsanız bize bildirmekten çekinmeyin. \n\n[Yönetim Paneli](https://denemneneee.glitch.me/) \n[Destek Sunucusu](https://discord.gg/dqnHfZ)`)
+            .setDescription(`Bot siteden yönetilmektedir. \nBotta bir bug veya hata alırsanız bize bildirmekten çekinmeyin. \n\n[Botu Ekle](https://discordapp.com/oauth2/authorize?client_id=630273610438934534&scope=bot&permissions=2146958847) \n[Yönetim Paneli](https://gex.glitch.me/) \n[Destek Sunucusu](https://discord.gg/7EUt7gM)`)
+  .addField('Bilgilendirme', 'Bildiğiniz üzere **Real Code** tekrardan açıldı buraya gelerek botunuzu şaha kaldıracak kodlara erişebilirsiniz. Sizleri seviyorum görüşmek dileğiyle.. \n[Buraya tıkla ve ışınlan](https://discord.gg/48Qe7uN)')
         message.channel.send({embed})
 
 }
