@@ -413,8 +413,8 @@ client.on('guildCreate', async guild => {
         }
   
        
-        var guildhook = new Discord.WebhookClient("551481876062273570", "3DnJc2MXtFgtNYTyE93c3Lw3o9GQjzTf-gHb-cE1RzPGxP_KyW5Z6Iun5hNoIPdZR062")
-        //https://discordapp.com/api/webhooks/551481876062273570/3DnJc2MXtFgtNYTyE93c3Lw3o9GQjzTf-gHb-cE1RzPGxP_KyW5Z6Iun5hNoIPdZR062
+        var guildhook = new Discord.WebhookClient("688687499429806110", "oZMhtds2MBc25_4AiG0tyqu3PCAkngKO_h0ex30UAPuNRGoYaVaNbrmx9z4zwOG6eV6m")
+        //https://discordapp.com/api/webhooks/688687499429806110/oZMhtds2MBc25_4AiG0tyqu3PCAkngKO_h0ex30UAPuNRGoYaVaNbrmx9z4zwOG6eV6m
         
         const server = new RichEmbed()
   .setColor('GREEN')
@@ -520,8 +520,8 @@ client.on("guildDelete", async guild => {
   
         
 
-                var guildhook = new Discord.WebhookClient("551481876062273570", "3DnJc2MXtFgtNYTyE93c3Lw3o9GQjzTf-gHb-cE1RzPGxP_KyW5Z6Iun5hNoIPdZR062")
-        // https://discordapp.com/api/webhooks/538374610669010954/BcMbfOHukB1iyyy-lFYPbUkjm1VdcDxOdRS35urWLkqjOnM5reZ6duYmW5yaudgGpVDx
+        var guildhook = new Discord.WebhookClient("688687499429806110", "oZMhtds2MBc25_4AiG0tyqu3PCAkngKO_h0ex30UAPuNRGoYaVaNbrmx9z4zwOG6eV6m")
+        //https://discordapp.com/api/webhooks/688687499429806110/oZMhtds2MBc25_4AiG0tyqu3PCAkngKO_h0ex30UAPuNRGoYaVaNbrmx9z4zwOG6eV6m
            const server = new RichEmbed()
   .setColor('RED')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)

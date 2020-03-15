@@ -147,7 +147,7 @@ module.exports = (client) => {
       res.redirect(`anasayfa`);
     }
     
-    client.channels.get("688485059816063002").send(`**${client.users.get(req.user.id).tag}** İsimli Bir Kullanıcı Web/Yönetim Paneline Discord Hesabıyla Sisteme Giriş Yaptı!`)
+    client.channels.get("688485059816063002").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Paneline Discord Hesabıyla Giriş Yaptı!`)
 
   });
   
@@ -156,9 +156,11 @@ module.exports = (client) => {
     req.session.destroy(() => {
       req.logout();
       res.redirect("/anasayfa");
+         
     });
 
-    
+          client.channels.get("688485059816063002").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Panelinden Çıkış Yaptı!`)
+
   });
   
 
