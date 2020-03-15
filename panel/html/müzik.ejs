@@ -76,36 +76,15 @@
       </div>
   </nav>
       
-<!--HEADER-->
-    
-<div class="container">
+    <div class="container">
   <div class="jumbotron" style="background-color:#2C2F33">
-    <div align="center">
-      <h4 style="color:#fff">YÖNETİCİ PANELİ</h4><br>
-      
-      <% bot.guilds.forEach((sunucu) => {
-      %>
-      <% let link = `/panel/${sunucu.id}/yonet` %>
-      <% if (sunucu.icon) { %>
-      <a href="<%=link%>"><img title="<%=sunucu.name%>" class="rounded-circle" src="<%= `https://cdn.discordapp.com/icons/${sunucu.id}/${sunucu.icon}.png?size=128` %>" style="width: 80px;" alt=""></a>
-		  <% } else { %>
-      <a href="<%=link%>"><canvas title="<%=sunucu.name%>" style="background-color:#7289da" class="rounded-circle" id="<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>" width="80px" height="80px"></canvas></a>
-		  <script>
-        function draw() {
-        const ctx = document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").getContext('2d');
-			  ctx.font = '20px Arial';
-			  ctx.textAlign = "center";
-			  ctx.fillStyle = "white";
-			  ctx.fillText("<%= sunucu.name.split(' ').map(v => v[0]).join('') %>", 40, 48);
-        document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").style.marginBottom = "-35px";
-        };
-        draw();
-		  </script>
-		<% } %>
-    <% }); %>
-    
+    <div align="left">
+      <h4 style="color:#fff">KALİTELİ BİR MÜZİK BOTU</h4><br>
+     <left><h6 style="color:lightgrey">Doğrudan Discord sunucunuzdan arkadaşlarınızla müzik dinleyin.</h6></left>
+<br>
+      <br> <left>   <a style="background-color: #000; padding: 20px; border-radius: 40px;" href="https://discord.gg/7EUt7gM" class="site-btn"><b style="color:#fff"><i class="" aria-hidden="true"></i><b>Sunucuya Ekle</b></b></a></left>
+
     </div>
   </div>
 </div>
-    
-<%- include('footer.ejs', {bot, user, path}) %>
+    <%- include('footer.ejs', {bot, user, path}) %>

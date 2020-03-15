@@ -174,7 +174,9 @@ app.get("/moduller", (req, res) => {
    app.get("/premium", (req, res) => {
     yukle(res, req, "premium.ejs");
   });
-
+app.get("/muzik", (req, res) => {
+    yukle(res, req, "müzik.ejs");
+  });
   app.get("/anasayfa", (req, res) => {
     yukle(res, req, "anasayfa.ejs");
   });
