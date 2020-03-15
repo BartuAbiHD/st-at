@@ -99,10 +99,10 @@ client.emojiler = {
 
 client.ayarlar = {
         "oynuyor": "+yardım | yakindapanel.glitch.me",
-        "official_sahip": "588397608360345620",
-        "sahip": ['588397608360345620'],
-        "isim": "NonStop",
-        "webpanel": "https://nonstopbotpanel.glitch.me/",
+        "official_sahip": "520997295014281228",
+        "sahip": ['520997295014281228'],
+        "isim": "Development",
+        "webpanel": "https://denemneneee.glitch.me/",
         "versiyon": "1.0.0",
         "prefix": "+",
         "renk":  "DARKBLUE",

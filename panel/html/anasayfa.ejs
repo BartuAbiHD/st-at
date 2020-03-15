@@ -84,16 +84,17 @@
       <center>
       <center><h3 style="color:#fff">GEX ile En iyi Discord Sunucusunu oluşturun!</h3></center>
 <center><h6 style="color:lightgrey">Kullanımı en kolay komutlarıyla, Sunucunuzu çok daha fazlası ile yapılandırın! ARTIK YÖNETİM PANELİ İLE!</h6></center>
-        
+        <br> 
+        <center>   <a style="background-color: #000; padding: 20px; border-radius: 40px;" href="https://discordapp.com/oauth2/authorize?client_id=630273610438934534&scope=bot&permissions=2146958847" class="site-btn"><b style="color:#fff">Sunucuya Ekle</b></a></center>
+
       
       <% if(!user) { %>
       <a href="/giris" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-fw fa-user" aria-hidden="true"></i> Giriş yap</button> </a>
 			<% } else { %>
    
-			<a style="color:#fff" class="nav-link" href="/panel" role="button"><i class="fa fa-cogs fa-fw" aria-hidden="true"></i> Yönetim/Kontrol Paneli
 			<% if(bot.ayarlar.sahip.includes(user.id)) { %>
 			<a style="color:#fff" class="nav-link" href="/yonetici" role="button"><i class="fa fa-key fa-fw" aria-hidden="true"></i> Yönetici Paneli</a><% } %>
-			<a style="color:#fff" class="nav-link" href="/cikis" role="button"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Çıkış Yap</a>			<% } %>
+<% } %>
                
        </div>
           </div>
