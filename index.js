@@ -108,7 +108,7 @@ client.ayarlar = {
         "renk":  "DARKBLUE",
         "version":  "1.0.0",
  };
-client.avatarURL = `https://cdn.discordapp.com/avatars/516600125649453066/c866646d27728bdb25fc39161c94a2e8.png?size=2048`
+client.avatarURL = `https://cdn.discordapp.com/avatars/630103706603487244/415d440cf55e3339d82edda091bc4869.png?size=2048`
 const ayarlar = client.ayarlar;
 
 client.tr = require('./tr.js');
@@ -135,7 +135,7 @@ const log = message => {
 
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("ready", async () => {
   
   client.appInfo = await client.fetchApplication();
@@ -147,10 +147,9 @@ client.on("ready", async () => {
   
   console.log(`» ${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor.")}`)
   client.user.setStatus("online");
-  client.user.setActivity(client.ayarlar.oynuyor, { type: 'WATCHING' });
   
 })
-  
+  //////////////////////////////////////////////////////////////////////////////////////////
   
   
  
@@ -245,6 +244,12 @@ const applyText = (canvas, text) => {
 
 */
 
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 const invites = {};
 
 
@@ -277,7 +282,7 @@ client.on('guildMemberAdd', member => {
    
     const kanal = member.guild.channels.get(db.fetch(`dKanal_${member.guild.id}`));
  
-    kanal.send(`\`${member.user.tag}\` adlı kullanıcı \`${inviter.tag}\` adlı kullanıcının ${invite.code} linkine sahip daveti ile sunucuya katıldı!`);
+    kanal.send(`\`${member.user.tag}\` adlı kullanıcı \`${inviter.tag}\` adlı kullanıcının **${invite.code}** linkine sahip daveti ile sunucuya katıldı!`);
   
 
    
@@ -289,47 +294,11 @@ client.on('guildMemberAdd', member => {
     return
   }
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-client.on("message",async message => {
-  if (!message.guild) return;
-    let prefixyeni = db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
-    let afk_kullanici = message.mentions.users.first() || message.author;
-    if(message.content.startsWith(prefixyeni+"afk")) return;
-  if (message.author.bot === true) return;
-    if(message.content.includes(`<@${afk_kullanici.id}>`))
-        if(db.has(`afks_${afk_kullanici.id}`)) {
-                message.channel.send(`**${client.users.get(afk_kullanici.id).tag}** adlı kullanıcı şuanda AFK! \n**Sebep:** \n${db.fetch(`afks_${afk_kullanici.id}`)}`)
-        }
-  
-        if(db.has(`afks_${message.author.id}`)) {
-                message.reply("başarıyla AFK modundan çıktın!")
-            db.delete(`afks_${message.author.id}`)
-        }
-  
-  
-    if (!message.guild) return;
-  
-let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
-  
-  if (message.author.bot) return;
-
-
-
-  if (message.content === `<@${client.user.id}>`) {
-    
-    message.channel.send(`• Bu sunucuya ait ön-ek/prefix: \`${prefix}\` \n• Bu sunucuya ait yardım komutu: \`${prefix}yardım\` \n• Ön-ek/Prefix değiştirilse bile komutlar etiket ile çalışır. \nÖrnek: \`@${client.user.tag}\`yardım`)
-    
-  }
-  
-  if (message.content === `<@${client.user.id}> ${message.content}`) {
-    
-    message.channel.send(`• Bu sunucuya ait ön-ek/prefix: \`${prefix}\` \n• Bu sunucuya ait yardım komutu: \`${prefix}yardım\` \n• Ön-ek/Prefix değiştirilse bile komutlar etiket ile çalışır. \nÖrnek: \`@${client.user.tag}\`yardım`)
-    
-  }
-});
-
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on('guildCreate', async guild => {
    var konum = ''
         if(guild.region === "russia") {
@@ -543,11 +512,14 @@ client.on("guildDelete", async guild => {
 })
 
 client.on("message", async msg => {
+  //////////////////////////////////////////////////////////////////////////////////////////
+  
+  
   
   
  
 
-  
+  //////////////////////////////////////////////////////////////////////////////////////////
   const prefix = await db.fetch(`prefix_${msg.guild.id}`) || client.ayarlar.prefix;
   //const args = msg.content.slice.split(' ');
   const args = msg.content.trim().split(/ +/g);
@@ -710,7 +682,7 @@ client.on("messageUpdate", async (msg) => {
            msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete(5000));
             var ke = new Discord.RichEmbed()
             .setColor("RANDOM")
-            .setAuthor("link Engeli!")
+            .setAuthor("Link Engeli!")
             .setDescription(`Bu sunucuda linkler **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`)
             msg.channel.send(ke).then(message => message.delete(5000));
        }
@@ -719,8 +691,13 @@ client.on("messageUpdate", async (msg) => {
 
   
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("message", async message => {
   
   if (!message.guild) return;
@@ -737,14 +714,14 @@ client.on("message", async message => {
         }
     }
 })
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
 
-
-
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("guildMemberRemove", async member => {
     if (db.has(`sayac_${member.guild.id}`) === false) return
     if (db.has(`sKanal_${member.guild.id}`) === false) return
@@ -787,8 +764,16 @@ client.on("guildMemberRemove", async member => {
   
   member.guild.channels.get(hgK).send(db.has(`cikisM_${member.guild.id}`) ? cikis.replace('{kullanıcı}', `**${member.user.username}**`).replace("{user}", `**${member.user.username}**`).replace("{sunucu}", `**${member.guild.name}**`).replace("{kişisayısı}", `**${member.guild.members.size}**`) : `**${member.user.username}** Ayrıldı! **${client.ayarlar.webpanel}** adresinden veya (\`çıkış-mesaj-ayarla\` komutu ile mesaj değiştirilebilir.)`);
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube('AIzaSyCJrGp1nROqIEp9mDXd1iV-gl5wYXNeDMs');
@@ -1346,7 +1331,14 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
   
   
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("message",async  message => {
 
   if (!message.guild) return;
@@ -1367,8 +1359,15 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.pref
         }
     }
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on('message', async msg => {
   
   if (!msg.guild) return;
@@ -1536,7 +1535,7 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
       });
   });
   }
-  
+  //////////////////////////////////////////////////////////////////////////////////////////
 
   
   //if (!message.guild) return;
@@ -1553,7 +1552,7 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
 //log sistemi
 
 //let logA = JSON.parse(fs.readFileSync("./jsonlar/log.json", "utf8"));
-
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("guildMemberAdd", member => {
   
   //if (member.author.bot) return;
@@ -1757,7 +1756,15 @@ client.on("guildMemberRemove", member => {
   kanal.send(embed);
   
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("messageDelete", message => {
   
   if (message.author.bot) return;
@@ -1899,12 +1906,11 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
     
   }
 });
-
-
-// PROFİL SİSTEMİ BROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO BAŞLAR BU ARADA --------------------------------------------
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
 
+//////////////////////////////////////////////////////////////////////////////////////////
 client.on("message", async message => {
     var onay = client.emojis.get(client.emojiler.evet);
   var red = client.emojis.get(client.emojiler.hayır);
@@ -1935,7 +1941,7 @@ client.on("message", async message => {
     if (message.content.indexOf(prefix) !== 0) return;
     const args = message.content.substring(prefix.length).split(" ");
     const command = args.shift().toLowerCase();
-
+//////////////////////////////////////////////////////////////////////////////////////////
 
     
    
@@ -1943,7 +1949,7 @@ client.on("message", async message => {
 
 
 
-  
+  //////////////////////////////////////////////////////////////////////////////////////////
     if (command === 'profil' || command === 'profile') {
       message.channel.startTyping()
       var xp = db.fetch(`puancik_${user.id + message.guild.id}`);
@@ -2157,9 +2163,15 @@ message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının rütbe
         
     }
 })
+//////////////////////////////////////////////////////////////////////////////////////////
 
-// PROFİL SİSTEMİ BROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO BİTER BU ARADA ---------------------------------------------
 
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
@@ -2239,19 +2251,19 @@ client.unload = command => {
     }
   });
 };
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
  
-
+//////////////////////////////////////////////////////////////////////////////////////////
   client.on("message", async msg => {
   
   const request = require('node-superfetch');
   const db = require('quick.db');
-  
-    
-    
 
-    
   if (msg.channel.type === "dm") return;
   if(msg.author.bot) return;  
   
@@ -2270,6 +2282,9 @@ client.unload = command => {
     
   };
 });
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
-client.login('NjMwMTAzNzA2NjAzNDg3MjQ0.Xm06uw.f1L_F86O1e9Idlaz0bb96jO_m2U')
+
+
+client.login('NjMwMTAzNzA2NjAzNDg3MjQ0.Xm4Gww.heytMky3Ysn3eEHc7MZkd05pG7I')
