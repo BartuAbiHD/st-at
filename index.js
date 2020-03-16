@@ -1348,15 +1348,15 @@ client.on('message', async msg => {
       const embed = new Discord.RichEmbed()
     .setColor("BLACK")
       .setAuthor(`Destek Sistemi`)
-      .setTitle(`_Merhaba ${msg.author.username}!_`)
-      .setDescription('Yetkililer senle kısa bir süre içinde ilgilenecektirler! Kahveni al ve bekle..')
+      .setDescription(`_**Merhaba ${msg.author}!**_ \nYetkililer senle kısa bir süre içinde ilgilenecektirler! Kahveni al ve bekle..`)
       .addField(`Destek Talebi Hakkında Bilgilendirme`, `Talebi kapatmak için \`${prefix}kapat\` yazabilirsin.`)
       .addField(`Destek Talebi Sebebi`, `${msg.content}`, true)
       .addField(`Destek Talebini Açan Kullanıcı`, `<@${msg.author.id}>`, true)
           .setTimestamp()
 .setFooter(`${client.user.username}`, client.user.avatarURL)
       c.send({ embed: embed });
-      c.send(`** @here | 📞Destek Talebi! ** \n**${msg.author.tag}** adlı kullanıcı \`${msg.content}\` sebebi ile Destek Talebi açtı!`)
+      c.send(`** @here | 📞Destek Talebi! **`)
+        //\n**${msg.author.tag}** adlı kullanıcı \`${msg.content}\` sebebi ile Destek Talebi açtı!
       msg.delete()
       }).catch(console.error);
     }
@@ -1392,15 +1392,15 @@ client.on('message', async msg => {
            const embed = new Discord.RichEmbed()
     .setColor("BLACK")
       .setAuthor(`Destek Sistemi`)
-      .setTitle(`_Merhaba ${msg.author.username}!_`)
-      .setDescription('Yetkililer senle kısa bir süre içinde ilgilenecektirler! Kahveni al ve bekle..')
+      .setDescription(`_**Merhaba ${msg.author}!**_ \nYetkililer senle kısa bir süre içinde ilgilenecektirler! Kahveni al ve bekle..`)
       .addField(`Destek Talebi Hakkında Bilgilendirme`, `Talebi kapatmak için \`${prefix}kapat\` yazabilirsin.`)
       .addField(`Destek Talebi Sebebi`, `${msg.content}`, true)
       .addField(`Destek Talebini Açan Kullanıcı`, `<@${msg.author.id}>`, true)
           .setTimestamp()
 .setFooter(`${client.user.username}`, client.user.avatarURL)
       c.send({ embed: embed });
-      c.send(`** @here | 📞Destek Talebi! ** \n**${msg.author.tag}** adlı kullanıcı \`${msg.content}\` sebebi ile Destek Talebi açtı!`)
+      c.send(`** @here | 📞Destek Talebi! **`)
+        //\n**${msg.author.tag}** adlı kullanıcı \`${msg.content}\` sebebi ile Destek Talebi açtı!
       msg.delete()
       }).catch(console.error);
     })
