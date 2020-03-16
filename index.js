@@ -1347,7 +1347,7 @@ client.on('message', async msg => {
 
       const embed = new Discord.RichEmbed()
     .setColor("BLACK")
-      .setAuthor(`${client.user.username} | Destek Sistemi`, client.user.avatarURL)
+      .setAuthor(`Destek Sistemi`)
       .setTitle(`_Merhaba ${msg.author.username}!_`)
       .addField(`» Destek Talebi Hakkında Bilgilendirme «`, `Yetkililerimiz en yakın zamanda burada sorunun ile ilgilenecektir! \nDestek talebini kapatmak için \`${prefix}kapat\` yazabilir, \nSunucudaki tüm Destek Taleplerini kapatmak için ise \`${prefix}talepleri-kapat\` yazabilirsin!`)
       .addField(`» Destek Talebi Sebebi «`, `${msg.content}`, true)
