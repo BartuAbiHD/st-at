@@ -1349,10 +1349,12 @@ client.on('message', async msg => {
     .setColor("BLACK")
       .setAuthor(`Destek Sistemi`)
       .setTitle(`_Merhaba ${msg.author.username}!_`)
-      .addField(`» Destek Talebi Hakkında Bilgilendirme «`, `Yetkililerimiz en yakın zamanda burada sorunun ile ilgilenecektir! \nDestek talebini kapatmak için \`${prefix}kapat\` yazabilir, \nSunucudaki tüm Destek Taleplerini kapatmak için ise \`${prefix}talepleri-kapat\` yazabilirsin!`)
-      .addField(`» Destek Talebi Sebebi «`, `${msg.content}`, true)
-      .addField(`» Destek Talebini Açan Kullanıcı «`, `<@${msg.author.id}>`, true)
-      .setFooter(`${msg.guild.name} adlı sunucu ${client.user.username} Destek Sistemi'ni kullanıyor teşekkürler!`, msg.guild.iconURL)
+      .setDescription('Yetkililer senle kısa bir süre içinde ilgilenecektirler! Kahveni al ve bekle..')
+      .addField(`Destek Talebi Hakkında Bilgilendirme`, `Talebi kapatmak için \`${prefix}kapat\` yazabilirsin.`)
+      .addField(`Destek Talebi Sebebi`, `${msg.content}`, true)
+      .addField(`Destek Talebini Açan Kullanıcı`, `<@${msg.author.id}>`, true)
+          .setTimestamp()
+.setFooter(`${client.user.username}`, client.user.avatarURL)
       c.send({ embed: embed });
       c.send(`** @here | 📞Destek Talebi! ** \n**${msg.author.tag}** adlı kullanıcı \`${msg.content}\` sebebi ile Destek Talebi açtı!`)
       msg.delete()
@@ -1387,14 +1389,16 @@ client.on('message', async msg => {
           READ_MESSAGES: true
       });
 
-      const embed = new Discord.RichEmbed()
+           const embed = new Discord.RichEmbed()
     .setColor("BLACK")
-      .setAuthor(`${client.user.username} | Destek Sistemi`, client.user.avatarURL)
+      .setAuthor(`Destek Sistemi`)
       .setTitle(`_Merhaba ${msg.author.username}!_`)
-     .addField(`» Destek Talebi Hakkında Bilgilendirme «`, `Yetkililerimiz en yakın zamanda burada sorunun ile ilgilenecektir! \nDestek talebini kapatmak için \`${prefix}kapat\` yazabilir, \nSunucudaki tüm Destek Taleplerini kapatmak için ise \`${prefix}talepleri-kapat\` yazabilirsin!`)
-      .addField(`» Destek Talebi Sebebi «`, `${msg.content}`, true)
-      .addField(`» Destek Talebini Açan Kullanıcı «`, `<@${msg.author.id}>`, true)
-      .setFooter(`${msg.guild.name} adlı sunucu ${client.user.username} Destek Sistemi'ni kullanıyor teşekkürler!`, msg.guild.iconURL)
+      .setDescription('Yetkililer senle kısa bir süre içinde ilgilenecektirler! Kahveni al ve bekle..')
+      .addField(`Destek Talebi Hakkında Bilgilendirme`, `Talebi kapatmak için \`${prefix}kapat\` yazabilirsin.`)
+      .addField(`Destek Talebi Sebebi`, `${msg.content}`, true)
+      .addField(`Destek Talebini Açan Kullanıcı`, `<@${msg.author.id}>`, true)
+          .setTimestamp()
+.setFooter(`${client.user.username}`, client.user.avatarURL)
       c.send({ embed: embed });
       c.send(`** @here | 📞Destek Talebi! ** \n**${msg.author.tag}** adlı kullanıcı \`${msg.content}\` sebebi ile Destek Talebi açtı!`)
       msg.delete()
@@ -1424,9 +1428,10 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
 
   const embed = new Discord.RichEmbed()
     .setColor("BLACK")
-  .setAuthor(`Destek Talebi Kapatma İşlemi!`)
+  .setAuthor(`Destek Talebi Kapatma`)
   .setDescription(`Destek talebini kapatma işlemini onaylamak için, \n10 saniye içinde \`evet\` yazınız.`)
-  .setFooter(`${client.user.username} | Destek Sistemi`, client.user.avatarURL)
+          .setTimestamp()
+.setFooter(`${client.user.username}`, client.user.avatarURL)
   message.channel.send({embed})
   .then((m) => {
     message.channel.awaitMessages(response => response.content === 'evet', {
