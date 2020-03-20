@@ -4,9 +4,9 @@ const config = {
     "token": "NjkwNTY3OTUwMTkyNjA3MzUz.XnTYxA.IbI-mUkdQgdJf8s-7Up1jst0PDQ", //botunuzun tokenini yazınız
     "dashboard" : {
       "oauthSecret": "DE84yviIFpxWJQGpRoDNtXRb8Zi4E115", //botunuzun secretini yazınız
-      "callbackURL": `https://rcdev.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
+      "callbackURL": `https://mee6gg.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
       "sessionSecret": "xyzxyz", //kalsın
-      "domain": "https://rcdev.glitch.me" //site URLnizi yazınız!
+      "domain": "https://mee6gg.glitch.me" //site URLnizi yazınız!
     }
   };
   
