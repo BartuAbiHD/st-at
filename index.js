@@ -1769,56 +1769,56 @@ message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının profil
       }
 
     if (command === "rozet-onayla") {
-        if (message.author.id !== "520997295014281228"  && message.author.id !== "593048354209005578" ) return message.channek.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228"  && message.author.id == "593048354209005578" ) return message.channek.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845736347435015/401725450470031362.png")
             return message.channel.send(`Kullanıcıya onay rozeti verilmiştir.`)
         
     }
   
     if (command === "rozet-konay" || command === "rozet-konayla") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
             return message.channel.send(`Kullanıcıdan onay rozeti alınmıştır.`)
         
     }
   
     if (command === "rozet-yetkili" || command === "rozet-ekip") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge2_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845736347435009/401723658491527168.png")
             return message.channel.send(`Kullanıcıya ekip rozeti verilmiştir.`)
         
     }
   
     if (command === "rozet-kyetkili" || command === "rozet-kekip") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge2_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
             return message.channel.send(`Kullanıcıdan ekip rozeti alınmıştır.`)
         
     }
   
     if (command === "rozet-destekci" || command === "rozet-destekçi") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge3_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845737006202881/401725034453925889.png")
             return message.channel.send(`Kullanıcıya destekçi rozeti verilmiştir.`)
         
     }
   
     if (command === "rozet-kdestekci" || command === "rozet-kdestekçi") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge3_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
             return message.channel.send(`Kullanıcıdan destekçi rozeti alınmıştır.`)
         
     }
   
     if (command === "rozet-mod" || command === "rozet-moderator") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge4_${user.id}`, "https://cdn.discordapp.com/attachments/474685686075621376/480845735647117312/401724520806875139.png")
             return message.channel.send(`Kullanıcıya moderator rozeti verilmiştir.`)
         
     }
   
     if (command === "rozet-kmod" || command === "rozet-kmoderator") {
-        if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+        if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channel.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
         const i = await db.set(`memberBadge4_${user.id}`, "https://cdn.discordapp.com/attachments/461622592688619520/472923575049781268/profile.png")
             return message.channel.send(`Kullanıcıdan moderator rozeti alınmıştır.`)
         
