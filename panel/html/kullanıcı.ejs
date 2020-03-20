@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="<%=bot.avatarURL%>">
   <meta name="author" content="<%=bot.user.tag%>">
-  <meta name="keywords" content="Web Dashboard ile Sunucunuzu Daha Hızlı ve Daha Kaliteli Yönetebilirsiniz. GEX'i Yönetmek Artık Sadece Bir Buton Uzakta. Sunucunuzu Daha Kaliteli ve Eğlenceli Yönetmek İçin.">
-  <meta property="og:site_name" value="<%=bot.user.username%>">
+  <meta name="keywords" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. made by Real Code">
   <meta property="og:image" content="<%=bot.avatarURL%>">
-  <meta property="og:description" content="Web Dashboard ile Sunucunuzu Daha Hızlı ve Daha Kaliteli Yönetebilirsiniz. GEX'i Yönetmek Artık Sadece Bir Buton Uzakta. Sunucunuzu Daha Kaliteli ve Eğlenceli Yönetmek İçin.">
-  <meta name="description" content="Web Dashboard ile Sunucunuzu Daha Hızlı ve Daha Kaliteli Yönetebilirsiniz. GEX'i Yönetmek Artık Sadece Bir Buton Uzakta. Sunucunuzu Daha Kaliteli ve Eğlenceli Yönetmek İçin.">
-  <meta name="theme-color" content="BLACK">
+  <meta property="og:title" content="<%=bot.user.username%> - The Discord Bot" />
+  <meta property="og:description" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. made by Real Code">
+  <meta name="description" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. ">
+  <meta name="theme-color" content="#60d1f6">
   <meta charset="UTF-8">
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700&amp;subset=latin-ext" rel="stylesheet">
@@ -30,14 +30,14 @@
   <link rel="stylesheet" href="/css/main.css" />
   
 	<link rel='icon' href='<%=bot.avatarURL%>'>
-	<title><%=bot.user.username%> - Discord Bot</title>
+	<title><%=bot.user.username%> - The Discord Bot</title>
 </head>
   
   <body>
     
-  <nav style="background-color:#2C2F33" class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="https://gex.glitch.me/"><h4>
-        GEX
+  <nav style="background-color:#24252a" class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="https://mee6gg.glitch.me/"><h4>
+        MEE6
         </h4></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -47,16 +47,17 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
 
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a href="/moduller" class="nav-link">Modüller</a></li>
-         <li class="nav-item"><a href="/lisans" class="nav-link">Lisans</a></li>
-                <li class="nav-item"><a href="/muzik" class="nav-link">Müzik</a></li>
-         <li class="nav-item"><a href="/premium" class="nav-link">Premium</a></li>
-                       <li class="nav-item"><a href="https://discord.gg/7EUt7gM" class="nav-link">Destek Sunucusu</a></li>
- </ul>
+        <li class="nav-item"><a href="/moderation" class="nav-link">Moderation</a></li>
+         <li class="nav-item"><a href="/leveling" class="nav-link">Leveling</a></li>
+        <li class="nav-item"><a href="/music" class="nav-link">Music</a></li>
+          <li class="nav-item"><a href="/premium" class="nav-link">Premium</a></li>
+         <li class="nav-item"><a href="https://discord.gg/7EUt7gM" class="nav-link">Help Desk</a></li>
+       <li class="nav-item"><a href="https://discord.gg/7EUt7gM" class="nav-link">Support Server</a></li>
+      </ul>
 
       <ul class="navbar-nav">
           <%if(!user) {%>
-          <li class="nav-item"><a href="/giris" class="nav-link">Giriş Yap</a></li>
+          <li class="nav-item"><a href="/giris" class="nav-link">Login</a></li>
             <%}%>
        <%if(user) {%>
             <li class="dropdown">
@@ -75,7 +76,7 @@
         </ul>
       </div>
   </nav>
-      
+   
 <!--HEADER-->
 
 <div class="container">

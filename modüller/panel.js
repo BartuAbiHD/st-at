@@ -147,7 +147,7 @@ module.exports = (client) => {
       res.redirect(`anasayfa`);
     }
     
-    client.channels.get("688485059816063002").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Paneline Discord Hesabıyla Giriş Yaptı!`)
+    client.channels.get("690599167164153896").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Paneline Discord Hesabıyla Giriş Yaptı!`)
 
   });
   
@@ -159,23 +159,23 @@ module.exports = (client) => {
          
     });
 
-          client.channels.get("688485059816063002").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Panelinden Çıkış Yaptı!`)
+          client.channels.get("690599167164153896").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Panelinden Çıkış Yaptı!`)
 
   });
   
-app.get("/moduller", (req, res) => {
-    yukle(res, req, "modüller.ejs");
+app.get("/moderation", (req, res) => {
+    yukle(res, req, "moderation.ejs");
   });
   
-  app.get("/lisans", (req, res) => {
-    yukle(res, req, "lisans.ejs");
+  app.get("/leveling", (req, res) => {
+    yukle(res, req, "leveling.ejs");
   });
   
    app.get("/premium", (req, res) => {
     yukle(res, req, "premium.ejs");
   });
-app.get("/muzik", (req, res) => {
-    yukle(res, req, "müzik.ejs");
+app.get("/music", (req, res) => {
+    yukle(res, req, "music.ejs");
   });
   app.get("/anasayfa", (req, res) => {
     yukle(res, req, "anasayfa.ejs");
