@@ -13,11 +13,10 @@ const md = require("marked");
 
 
 exports.run = async(client, message, args) => {
-
-
- message.channel.send(`Here is **${message.guild.name}**'s leaderboard: https://mee6gg.glitch.me/leaderboard/${message.guild.id}`);
-
- 
+  
+  
+message.channel.send(`<:XMARK6:690583258022412299> You aren't ranked yet. Send some messages first, then try again`)
+  
 }//embed tanımlarını değiştrelim  realcode yazalım
 
 
@@ -31,8 +30,8 @@ kategori: "help"
 }
 
 exports.help = {
-name: "levels",
-description: "Bot hakkında kısa bilgiyi gösterir.",
+name: "rank",
+description: "",
 usage: "help"
 
 }
