@@ -1762,7 +1762,7 @@ message.channel.send(`:pencil: **| ${user.username} adlı kullanıcının profil
     
   
         if (command === "rozet-parar") {
-          if (message.author.id !== "520997295014281228" && message.author.id !== "593048354209005578" ) return message.channek.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
+          if (message.author.id !== "520997295014281228" && message.author.id == "593048354209005578" ) return message.channek.send(`Bu komutu kullanmak için yetkin bulunmuyor.`);
           const i = await db.set(`memberBadge6_${user.id}`, "https://cdn.discordapp.com/attachments/531535859594297364/533260601162465280/paraR.png")
               return message.channel.send(`Verdim.`)
           
