@@ -118,13 +118,13 @@ const log = message => {
 
 client.on('message', message => {
 if (message.content === `<@${client.user.id}>`) {
- const embed = new Discord.RichEmbed()
-           .setColor('RED')
-          .setTimestamp()
-  .setAuthor(`Hata!`)
-.setFooter(`${client.user.username}`, client.user.avatarURL)
-            .setDescription(`Bot siteden yönetilmektedir. \nBotta bir bug veya hata alırsanız bize bildirmekten çekinmeyin. \n\n[Yönetim Paneli](https://denemneneee.glitch.me/) \n[Destek Sunucusu](https://discord.gg/dqnHfZ)`)
-        message.channel.send({embed})
+ const mee6help = new Discord.RichEmbed()
+  .setColor('#60d1f6')
+  .setAuthor(`MEE6 Plugins Commands`, client.user.avatarURL)
+  .addField('**Commands**', '`!help commands`', true)
+  .addField('**Levels**', '`!help levels`', true)
+ .setThumbnail('https://cdn.discordapp.com/attachments/688803433947594796/690582370092449932/mee6_kare.png')
+        message.channel.send(mee6help)
 }
 });
 
