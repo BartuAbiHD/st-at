@@ -16,7 +16,9 @@ exports.run = async(client, message, args) => {
 
   
   if(args[0] == "commands") {
-return message.channel.send(`It looks like you don't have any commands to show.
+return message.channel.send(`
+<:XMARK6:690583258022412299> It looks like you don't have any commands to show.
+
 To enable or add commands, head to your dashboard and enable the plugins of your choice -> 
 https://mee6gg.glitch.me/panel/${message.guild.id}/yonet`);
 }
@@ -39,6 +41,7 @@ Get the rank of anyone in the server`)
   .setAuthor(`MEE6 Plugins Commands`, client.user.avatarURL)
   .addField('**Commands**', '`!help commands`', true)
   .addField('**Levels**', '`!help levels`', true)
+ .setThumbnail('https://cdn.discordapp.com/attachments/688803433947594796/690582370092449932/mee6_kare.png')
         message.channel.send(mee6help)
  
 }//embed tanımlarını değiştrelim  realcode yazalım
