@@ -94,11 +94,11 @@ client.emojiler = {
 }
 
 client.ayarlar = {
-        "oynuyor": "+yardım | YENİ BOTA GEÇTİK!",
+        "oynuyor": "MEE6",
         "official_sahip": "520997295014281228",
         "sahip": ['520997295014281228'],
-        "isim": "GEX",
-        "webpanel": "https://gex.glitch.me/",
+        "isim": "MEE6",
+        "webpanel": "https://mee6gg.glitch.me/",
         "versiyon": "1.0.0",
         "prefix": "+",
         "renk":  "BLACK",
@@ -153,7 +153,7 @@ client.on("ready", async () => {
   
   console.log(`» ${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor.")}`)
   client.user.setStatus("online");
-  client.user.setActivity(client.ayarlar.oynuyor, { type: 'WATCHING' });
+ // client.user.setActivity(client.ayarlar.oynuyor, { type: 'WATCHING' });
   
 })
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -1948,4 +1948,4 @@ client.unload = command => {
 
 
 
-client.login('NjkwNTY3OTUwMTkyNjA3MzUz.XnTTiQ.IYHA_GEiMzKJpG0zvZa08HNWbZw')
+client.login('NjkwNTY3OTUwMTkyNjA3MzUz.XnTYxA.IbI-mUkdQgdJf8s-7Up1jst0PDQ')
