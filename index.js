@@ -100,7 +100,7 @@ client.ayarlar = {
         "isim": "MEE6",
         "webpanel": "https://mee6gg.glitch.me/",
         "versiyon": "1.0.0",
-        "prefix": "+",
+        "prefix": "!",
         "renk":  "BLACK",
         "version":  "1.0.0",
  };
