@@ -29,7 +29,6 @@ const db = require('quick.db');
 const jimp = require('jimp');
 const Jimp = require('jimp')
 const snekfetch = require('snekfetch');
-const useful = require('./x.js');
 
 
 let komutum = JSON.parse(fs.readFileSync("./komutlar.json", "utf8"));
@@ -38,60 +37,10 @@ client.cmdd = komutum
 
 
 
-client.useful = useful;
 require("./modüller/fonksiyonlar.js")(client);
 require('./util/eventLoader')(client);
 client.config = require("./config.js");
-client.emojiler = {
 
-   "gold": "532931814730366980",  //?PARAM DAKİ ALTIN EMOJİSİ      
-   "paraGitti": "533379120722214937",  // X İŞARETİ          
-   "paraGitmedi": "533379123356237835", // TİK İŞARETİ      
-   "paraROZET": "533265960002650123", // PARA İLE ALINAN YILDIRIM ROZET EMOJİSİ  
-   "onayRozet": "527573460814135306" , // ONAY ROZETİ
-   "modRozet": "539489890014855178", // MOD ROZETİ
-   "yetkiliRozet": "539489890434285568", // YETKİLİ ROZETİ
-   "destekçiRozet": "539489889977237530",
-   "evet": "533379120722214937",  // TİK İŞARET       
-   "hayır": "533379123356237835", // X İŞARETİ  
-   "kendineParaYollama": "534004856558714890", // KENDİNE PARA ATMAYA ÇALIŞANLAR İÇİN SİNİRLİ EMOJİSİ      
-   "konfeti": "535023706104266762", // MESLEK SAHİBİ OLUNCA RENGARENK KONFETİ ATIYOR  
-   "yukleniyor": "536478214013583372", // YÜKLENİYOR EMOJİ İŞTE :D     
-   "sinirli": "534004856558714890", // TİTREYEN SİNİRLİ :D       
-   "mutlu": "536478990597095424", // MUTLU EMOJİ                   
-   "rahatsızetme": "536480419953115175", // RAHATSIZ ETMEYİN EMOJİSİ    
-   "çevrimiçi": "536480420318150667", // ÇEVRİMİÇİ EMOJİSİ  
-   "yayıncı": "537015282192089099", // YAYINCI EMOJİSİ 
-   "çevrimdışı": "536480420393648129", // ÇEVRİM DIŞI EMOJİSİ  
-   "boşta": "536480419437084673", // BOŞTA EMOJİSİ     
-   "bot": "536480420062298113", // BOT EMOJİSİ          
-   "polis": "536480421685362699", // POLİS EMOJİ   
-   "Yvar": "533379120722214937", // YETKİLERİM KOMUDUNDAKİ TİK İŞARETİ
-   "Yyok": "533379123356237835", // YETKİLERİM KOMUDUNDAKİ X İŞARETİ
-   "yan": "538809641036152853", // > GİBİ EMOJİ İŞTE :ç
-   "kalpSarılmalı": "561146492648161284",
-   "olumlu": "",
-   "olumsuz": "",
-  
-  // AYARLAR KOMUDUNDAKİ AÇIK KAPALI EMOJİLERİ >>>>>>>>>>>>>>>>>
-  "kapalıA": "557283240516517953",
-  "açıkA": "557283240679833699",
-  
-  // AÇIK BONUS EMOJİLERİ -------------- >>>>>>>>>>
-  
-  "açıkB": "549204804468211740", // B
-  "açıkO": "549204805151621141", // O
-  "açıkN": "549204804446978058", // N
-  "açıkU": "549204806796050462", // U
-  "açıkS": "549204806380552202", // S
-  
-  // KAPALI BONUS EMOJİLERİ ---------------- >>>>>>>>>>>>>
-  
-  "kapalıO": "549205266130927648", // O
-  "kapalıN": "549205265702977542", // N
-  "kapalıU": "549205268051787776", // U
-  "kapalıS": "549205267246612482", // S
-}
 
 client.ayarlar = {
         "oynuyor": "MEE6",
@@ -107,8 +56,7 @@ client.ayarlar = {
 client.avatarURL = `https://cdn.discordapp.com/attachments/688803433947594796/690573120117014538/mee6.png`
 const ayarlar = client.ayarlar;
 
-client.tr = require('./tr.js');
-client.en = require('./en.js');
+
 
 //var prefix = ayarlar.prefix;
 

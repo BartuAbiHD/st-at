@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#60d1f6">
   <meta charset="UTF-8">
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="hhttps://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet">
   <link href="https://bootswatch.com/4/cyborg/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
@@ -67,7 +67,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="background-color:#17181b">
               <a class="dropdown-item" href="/panel" style="color:#a6aab5"><i aria-hidden="true"></i>My Servers</a>
               <% if(bot.ayarlar.sahip.includes(user.id)) { %>
-						  <a class="dropdown-item" href="/yonetici" style="color:#a6aab5"><i aria-hidden="true"></i>Admin</a>
+						  <a class="dropdown-item" href="/admin" style="color:#a6aab5"><i aria-hidden="true"></i>Admin</a>
 				      <% } %>
               <a class="dropdown-item" href="/cikis" style="color:#a72a39"><i class="" aria-hidden="true"></i>Logout</a>
         </div>
@@ -99,8 +99,8 @@
 			<% } else { %>
    
 			<% if(bot.ayarlar.sahip.includes(user.id)) { %>
-           <br> <br>  <center>   <a style="background-color: #44b37f; padding: 20px; border-radius: 3px;" href="/admin" class="site-btn"><b style="color:#fff"><i  aria-hidden="true"></i>Yönetici Paneli</b></a></center>
-		 <!--	<a style="color:#fff" class="nav-link" href="/yonetici" role="button"><i class="fa fa-key fa-fw" aria-hidden="true"></i> Yönetici Paneli</a><% } %>
+           <br> <br>  <center>   <a style="background-color: #a72a39; padding: 20px; border-radius: 3px;" href="/admin" class="site-btn"><b style="color:#fff"><i  aria-hidden="true"></i>Admin Panel</b></a></center>
+		 <!--	<a style="color:#fff" class="nav-link" href="/admin" role="button"><i class="fa fa-key fa-fw" aria-hidden="true"></i> Yönetici Paneli</a><% } %>
 <% } %>
                
        </div>
