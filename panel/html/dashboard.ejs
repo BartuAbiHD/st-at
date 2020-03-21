@@ -65,7 +65,7 @@
               <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt=""> <%=user.username%>
            </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="background-color:#17181b">
-              <a class="dropdown-item" href="/panel" style="color:#a6aab5"><i aria-hidden="true"></i>My Servers</a>
+              <a class="dropdown-item" href="/dashboard" style="color:#a6aab5"><i aria-hidden="true"></i>My Servers</a>
               <% if(bot.ayarlar.sahip.includes(user.id)) { %>
 						  <a class="dropdown-item" href="/admin" style="color:#a6aab5"><i aria-hidden="true"></i>Admin</a>
 				      <% } %>
@@ -91,9 +91,9 @@
       <%
       let link, eklenmemis;
       if (bot.guilds.has(sunucu.id) === true) {
-        link = `/panel/${sunucu.id}/yonet`
+        link = `/dashboard/${sunucu.id}`
       } else {
-        link = `/botuekle`
+        link = `/addbot`
         eklenmemis = true
       }
       %>

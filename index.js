@@ -1553,8 +1553,6 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 client.on("message", async message => {
-    var onay = client.emojis.get(client.emojiler.evet);
-  var red = client.emojis.get(client.emojiler.hayır);
       const prefixMention = new RegExp(`^<@!?${client.user.id}>`);
     if (message.channel.type === "dm") return;
 

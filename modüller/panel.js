@@ -147,7 +147,7 @@ module.exports = (client) => {
       res.redirect(`anasayfa`);
     }
     
-    client.channels.get("690599167164153896").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Paneline Discord Hesabıyla Giriş Yaptı!`)
+    client.channels.get("690599167164153896").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Paneline Giriş Yaptı!`)
 
   });
   
@@ -264,10 +264,10 @@ app.get("/music", (req, res) => {
   });
   
   app.get("/dashboard/:sunucuID", girisGerekli, (req, res) => {
-    res.redirect(`/dashboard/${req.params.sunucuID}/yonet`);
+    res.redirect(`/dashboard/${req.params.sunucuID}`);
   });
 
-  app.get("/dashboard/:sunucuID/yonet", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const guild = client.guilds.get(req.params.guildID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -787,7 +787,7 @@ db.set(`yasakK_${req.params.guildID}`, arr)
   
 }
 
-res.redirect("/panel/"+req.params.guildID+"/genel");
+res.redirect("/dashboard/"+req.params.guildID+"/genel");
 });
 
 
@@ -797,7 +797,7 @@ res.redirect("/panel/"+req.params.guildID+"/genel");
 
   
   
-  app.post("/panel/:sunucuID/yonet", girisGerekli, (req, res) => {
+  app.post("/dashboard/:sunucuID", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const g = client.guilds.get(req.params.sunucuID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -847,7 +847,7 @@ res.redirect("/panel/"+req.params.guildID+"/genel");
     yukle(res, req, "admin.ejs");
   });
   
-  app.get("/botuekle", (req, res) => {
+  app.get("/addbot", (req, res) => {
     res.redirect(`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8`);
   });
   
