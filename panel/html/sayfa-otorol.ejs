@@ -161,6 +161,38 @@
     </div>
            </div>
       </div>
+
+
+    
+           <div class="row">
+        <div class="col-25">
+          <label for="dkanal">Invitation Channel</label>
+        </div>
+        <div class="col-75">
+          <% if (bot.ayar.has(`dKanal_${guild.id}`) === false) { %>
+          <select style="text-align: left; width:87%;" name="dkanal" id="dkanal">
+            <option disabled selected>Please select a channel.</option>
+            <% guild.channels.filter(c => c.type === "text").forEach(c => { %>
+            <option value="<%=c.id%>">#<%=c.name%></option>
+            <% }); %>
+          </select>
+          <a href="/dashboard/<%=guild.id%>/dkanal/sifirla" class="reset-btn" role="button">Reset</a>
+          <% } %>
+					<% if(bot.ayar.has(`dKanal_${guild.id}`) === true) { %>
+          <select style="text-align: left; width:87%;" name="dkanal" id="dkanal">
+            <option value="<%=bot.ayar.fetch(`dKanal_${guild.id}`)%>"><%=guild.channels.get(bot.ayar.fetch(`dKanal_${guild.id}`)).name%></option>
+					 <% guild.channels.filter(c => c.type === "text").filter(c => c.id !== bot.ayar.fetch(`dKanal_${guild.id}`)).forEach(c => { %>
+            <option value="<%=c.id%>">#<%=c.name%></option>
+          <% }); %>
+          </select>
+          <a href="/dashboard/<%=guild.id%>/dkanal/sifirla" class="reset-btn" role="button">Reset</a>
+          <% } %>
+        </div>
+      </div>
+        
+    
+
+
 <div class="container">
   <div class="jumbotron" style="background-color:#24252a">
     <div align="center"> 
@@ -228,8 +260,7 @@
 
 
           <div style="width: 100%; text-align: right; margin-top: 15px;">
-      <button style="background-color:blue; color:#fff" type="sumbit" id="formbtn" class="btn btn-default" ><i class="fa fa-fw fa-save" aria-hidden="true"></i> Kaydet</button>
-      <a href="yonet" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-mail-reply" aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+      <button style="background-color:#44b37f; color:#fff" type="sumbit" id="formbtn" class="btn btn-default" ><i class="" aria-hidden="true"></i> Save Changes</button>
 
         
       </form>

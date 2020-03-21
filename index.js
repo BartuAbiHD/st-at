@@ -47,7 +47,7 @@ client.ayarlar = {
         "official_sahip": "689169122604744833",
         "sahip": ['689169122604744833'],
         "isim": "MEE6",
-        "webpanel": "https://botmee6.glitch.me/",
+        "webpanel": "https://mee6gg.glitch.me/",
         "versiyon": "1.0.0",
         "prefix": "mee6admin!",
         "renk":  "#60d1f6",

@@ -21,8 +21,8 @@ module.exports = (client) => {
   
   const bilgiler = {
     oauthSecret: "DE84yviIFpxWJQGpRoDNtXRb8Zi4E115",
-    callbackURL: `https://botmee6.glitch.me/callback`,
-    domain: `https://botmee6.glitch.me/`
+    callbackURL: `https://mee6gg.glitch.me/callback`,
+    domain: `https://mee6gg.glitch.me/`
   };
   
   console.log('BAŞARILI')
