@@ -843,8 +843,8 @@ res.redirect("/panel/"+req.params.guildID+"/genel");
 
 
   
-  app.get("/yonetici", girisGerekli, (req, res) => {
-    yukle(res, req, "yönetici.ejs");
+  app.get("/admin", girisGerekli, (req, res) => {
+    yukle(res, req, "admin.ejs");
   });
   
   app.get("/botuekle", (req, res) => {

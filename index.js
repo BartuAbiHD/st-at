@@ -95,13 +95,13 @@ client.emojiler = {
 
 client.ayarlar = {
         "oynuyor": "MEE6",
-        "official_sahip": "520997295014281228",
-        "sahip": ['520997295014281228'],
+        "official_sahip": "689169122604744833",
+        "sahip": ['689169122604744833'],
         "isim": "MEE6",
         "webpanel": "https://mee6gg.glitch.me/",
         "versiyon": "1.0.0",
         "prefix": "mee6admin!",
-        "renk":  "BLACK",
+        "renk":  "#60d1f6",
         "version":  "1.0.0",
  };
 client.avatarURL = `https://cdn.discordapp.com/attachments/688803433947594796/690573120117014538/mee6.png`
