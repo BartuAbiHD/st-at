@@ -21,8 +21,8 @@ module.exports = (client) => {
   
   const bilgiler = {
     oauthSecret: "DE84yviIFpxWJQGpRoDNtXRb8Zi4E115",
-    callbackURL: `https://mee6gg.glitch.me/callback`,
-    domain: `https://mee6gg.glitch.me/`
+    callbackURL: `https://botmee6.glitch.me/callback`,
+    domain: `https://botmee6.glitch.me/`
   };
   
   console.log('BAŞARILI')
@@ -264,10 +264,10 @@ app.get("/music", (req, res) => {
   });
   
   app.get("/dashboard/:sunucuID", girisGerekli, (req, res) => {
-    res.redirect(`/dashboard/${req.params.sunucuID}`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/yonet`);
   });
 
-  app.get("/dashboard/:sunucuID", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/yonet", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const guild = client.guilds.get(req.params.guildID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -318,7 +318,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
    app.get("/dashboard/:sunucuID/ototagK/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`tagKanal_${req.params.sunucuID}`) === false) return res.json({"hata": "Tag kayıt kanalı   "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`tagKanal_${req.params.sunucuID}`)
-    res.redirect(`/dashboard/${req.params.sunucuID}/ototag`);
+    res.redirect(`/panel/${req.params.sunucuID}/ototag`);
   });
   
   
@@ -330,7 +330,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-      app.post("/panel/:guildID/otorol", girisGerekli, async(req, res) => {
+      app.post("/dashboard/:guildID/otorol", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
    if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -340,12 +340,12 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/otorol");
+    res.redirect("/dashboard/"+req.params.guildID+"/otorol");
   });
   
   
   
-      app.get("/panel/:guildID/otorol", girisGerekli, (req, res) => {
+      app.get("/dashboard/:guildID/otorol", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
             const sunucu = client.guilds.get(req.params.guildID);
 
@@ -357,16 +357,16 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-  app.get("/panel/:sunucuID/otorol/sifirla", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/otorol/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`otoR_${req.params.sunucuID}`) === false) return res.json({"hata": "Otorol adlı ayar "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`otoR_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/otorol`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/otorol`);
   });
   
-   app.get("/panel/:sunucuID/otoRK/sifirla", girisGerekli, (req, res) => {
+   app.get("/dashboard/:sunucuID/otoRK/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`otoRK_${req.params.sunucuID}`) === false) return res.json({"hata": "Otorol kanalı   "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`otoRK_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/otorol`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/otorol`);
   });
   
   // FİLTRE
@@ -375,7 +375,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-    app.get("/panel/:guildID/filtre", girisGerekli, (req, res) => {
+    app.get("/dashboard/:guildID/filtre", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -388,7 +388,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
 
   
   
-    app.post("/panel/:guildID/filtre", girisGerekli, async(req, res) => {
+    app.post("/dashboard/:guildID/filtre", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
       
@@ -399,18 +399,18 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/filtre");
+    res.redirect("/dashboard/"+req.params.guildID+"/filtre");
   });
   
   
-    app.get("/panel/:guildID/filtre/sil", girisGerekli, async (req, res) => {
-res.redirect("/panel/"+req.params.guildID+"/filtre");
+    app.get("/dashboard/:guildID/filtre/sil", girisGerekli, async (req, res) => {
+res.redirect("/dashboard/"+req.params.guildID+"/filtre");
 });
 
   
   
  
-app.get("/panel/:guildID/filtre/sil/:cmdID", girisGerekli, async (req, res) => {
+app.get("/dashboard/:guildID/filtre/sil/:cmdID", girisGerekli, async (req, res) => {
 const guild = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
 const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.id).permissions.has("MANAGE_GUILD") : false;
@@ -437,7 +437,7 @@ db.set(`filtre_${req.params.guildID}`, arr)
   
 }
 
-res.redirect("/panel/"+req.params.guildID+"/filtre");
+res.redirect("/dashboard/"+req.params.guildID+"/filtre");
 });
 
   
@@ -445,7 +445,7 @@ res.redirect("/panel/"+req.params.guildID+"/filtre");
   
   
   
-  app.get("/panel/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
+  app.get("/dashboard/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
   const guild = client.guilds.get(req.params.guildID);
         const sunucu = client.guilds.get(req.params.guildID);
 
@@ -455,19 +455,19 @@ res.redirect("/panel/"+req.params.guildID+"/filtre");
   yukle(res, req, "sayfa-ozelkomutlar.ejs", {guild, sunucu});
 });
 
-  app.post("/panel/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
+  app.post("/dashboard/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
   const guild = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
   const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.id).permissions.has("MANAGE_GUILD") : false;
     if (!isManaged && !req.session.isAdmin) return res.json({"hata":"Bu sunucuda Sunucuyu Yönet iznin bulunmuyor. Bu yüzden bu sayfaya erişim sağlayamazsın."});
 
   client.customCmds(guild.id, req.body);
-  res.redirect("/panel/"+req.params.guildID+"/ozelkomutlar");
+  res.redirect("/dashboard/"+req.params.guildID+"/ozelkomutlar");
 });
   
   
   
-  app.get("/panel/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
+  app.get("/dashboard/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
 const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -485,18 +485,18 @@ const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.i
   
   
 client.customCmds(guild.id, req.body);
-res.redirect("/panel/"+req.params.guildID+"/ozelkomutlar");
+res.redirect("/dashboard/"+req.params.guildID+"/ozelkomutlar");
 });
   
   
-  app.get("/panel/:guildID/ozelkomutlar/sil", girisGerekli, async (req, res) => {
-res.redirect("/panel/"+req.params.guildID+"/ozelkomutlar");
+  app.get("/dashboard/:guildID/ozelkomutlar/sil", girisGerekli, async (req, res) => {
+res.redirect("/dashboard/"+req.params.guildID+"/ozelkomutlar");
 });
 
   
   
   const fs = require('fs');
-app.get("/panel/:guildID/ozelkomutlar/sil/:cmdID", girisGerekli, async (req, res) => {
+app.get("/dashboard/:guildID/ozelkomutlar/sil/:cmdID", girisGerekli, async (req, res) => {
 const guild = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
 const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.id).permissions.has("MANAGE_GUILD") : false;
@@ -525,14 +525,14 @@ for (var i = 0; i < komutlar[req.params.guildID].length; i++) {
 }
 }
 
-res.redirect("/panel/"+req.params.guildID+"/ozelkomutlar");
+res.redirect("/dashboard/"+req.params.guildID+"/ozelkomutlar");
 });
 
   
   //DAVET SİSTEMİ
   
   
-        app.post("/panel/:guildID/davetsistemi", girisGerekli, async(req, res) => {
+        app.post("/dashboard/:guildID/davetsistemi", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
    if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -542,12 +542,12 @@ res.redirect("/panel/"+req.params.guildID+"/ozelkomutlar");
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/davetsistemi");
+    res.redirect("/dashboard/"+req.params.guildID+"/davetsistemi");
   });
   
   
   
-      app.get("/panel/:guildID/davetsistemi", girisGerekli, (req, res) => {
+      app.get("/dashboard/:guildID/davetsistemi", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -558,10 +558,10 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-  app.get("/panel/:sunucuID/dkanal/sifirla", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/dkanal/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`dKanal_${req.params.sunucuID}`) === false) return res.json({"hata": "Davet kanalı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`dKanal_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/davetsistemi`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/davetsistemi`);
   });
   
   //GİRİŞ ÇIKIŞ
@@ -570,7 +570,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
 
   
-        app.post("/panel/:guildID/giriscikis", girisGerekli, async(req, res) => {
+        app.post("/dashboard/:guildID/giriscikis", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
    if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -580,12 +580,12 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/giriscikis");
+    res.redirect("/dashboard/"+req.params.guildID+"/giriscikis");
   });
   
   
   
-      app.get("/panel/:guildID/giriscikis", girisGerekli, (req, res) => {
+      app.get("/padashboardnel/:guildID/giriscikis", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -596,21 +596,21 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-  app.get("/panel/:sunucuID/cikism/sifirla", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/cikism/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`cikisM_${req.params.sunucuID}`) === false) return res.json({"hata": "Çıkış mesajı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`cikisM_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/giriscikis`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/giriscikis`);
   });
-    app.get("/panel/:sunucuID/girisk/sifirla", girisGerekli, (req, res) => {
+    app.get("/dashboard/:sunucuID/girisk/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`gc_${req.params.sunucuID}`) === false) return res.json({"hata": "Giriş çıkış kanalı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`gc_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/giriscikis`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/giriscikis`);
   });
   
-   app.get("/panel/:sunucuID/girism/sifirla", girisGerekli, (req, res) => {
+   app.get("/dashboard/:sunucuID/girism/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`girisM_${req.params.sunucuID}`) === false) return res.json({"hata": "Giriş mesajı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`girisM_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/giriscikis`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/giriscikis`);
   });
   
   
@@ -630,7 +630,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   // DESTEK SİTEM
   
-      app.post("/panel/:guildID/desteksistemi", girisGerekli, async(req, res) => {
+      app.post("/dashboard/:guildID/desteksistemi", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
    if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -640,12 +640,12 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/desteksistemi");
+    res.redirect("/dashboard/"+req.params.guildID+"/desteksistemi");
   });
   
   
   
-      app.get("/panel/:guildID/desteksistemi", girisGerekli, (req, res) => {
+      app.get("/dashboard/:guildID/desteksistemi", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -656,22 +656,22 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-  app.get("/panel/:sunucuID/destekk/sifirla", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/destekk/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`destekK_${req.params.sunucuID}`) === false) return res.json({"hata": "Destek kanalı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`destekK_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/desteksistemi`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/desteksistemi`);
   });
   
-   app.get("/panel/:sunucuID/destekr/sifirla", girisGerekli, (req, res) => {
+   app.get("/dashboard/:sunucuID/destekr/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`destekR_${req.params.sunucuID}`) === false) return res.json({"hata": "Destek Rolü "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`destekR_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/desteksistemi`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/desteksistemi`);
   });
   
   
   
 // SAYAÇ SİSTEMİ
-          app.post("/panel/:guildID/sayac", girisGerekli, async(req, res) => {
+          app.post("/dashboard/:guildID/sayac", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
    if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -681,12 +681,12 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/sayac");
+    res.redirect("/dashboard/"+req.params.guildID+"/sayac");
   });
   
   
   
-      app.get("/panel/:guildID/sayac", girisGerekli, (req, res) => {
+      app.get("/dashboard/:guildID/sayac", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -697,22 +697,22 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-  app.get("/panel/:sunucuID/skanal/sifirla", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/skanal/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`sKanal_${req.params.sunucuID}`) === false) return res.json({"hata": "Çıkış mesajı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`sKanal_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/sayac`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/sayac`);
   });
-    app.get("/panel/:sunucuID/sayac/sifirla", girisGerekli, (req, res) => {
+    app.get("/dashboard/:sunucuID/sayac/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`sayac_${req.params.sunucuID}`) === false) return res.json({"hata": "Giriş çıkış kanalı "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`sayac_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/sayac`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/sayac`);
   });
 
 
 // GENEL AYARLAR
  
 
-         app.post("/panel/:guildID/genel", girisGerekli, async(req, res) => {
+         app.post("/dashboard/:guildID/genel", girisGerekli, async(req, res) => {
     const guild = client.guilds.get(req.params.guildID);
       const sunucu = client.guilds.get(req.params.sunucuID);
    if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -722,12 +722,12 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
     client.writeSettings(guild.id, req.body);
        
  
-    res.redirect("/panel/"+req.params.guildID+"/genel");
+    res.redirect("/dashboard/"+req.params.guildID+"/genel");
   });
   
   
   
-      app.get("/panel/:guildID/genel", girisGerekli, (req, res) => {
+      app.get("/dashboard/:guildID/genel", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -738,29 +738,29 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
   
   
   
-  app.get("/panel/:sunucuID/srol/sifirla", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/srol/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`sRol_${req.params.sunucuID}`) === false) return res.json({"hata": "Susturma rolü "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`sRol_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/genel`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/genel`);
   });
   
-   app.get("/panel/:sunucuID/prefix/sifirla", girisGerekli, (req, res) => {
+   app.get("/dashboard/:sunucuID/prefix/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`prefix_${req.params.sunucuID}`) === false) return res.json({"hata": "Prefix   "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`prefix_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/genel`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/genel`);
   });
   
   
   
   
-    app.get("/panel/:guildID/komut-yasak/sil", girisGerekli, async (req, res) => {
-res.redirect("/panel/"+req.params.guildID+"/genel");
+    app.get("/dashboard/:guildID/komut-yasak/sil", girisGerekli, async (req, res) => {
+res.redirect("/dashboard/"+req.params.guildID+"/genel");
 });
 
   
   
  
-app.get("/panel/:guildID/komut-yasak/sil/:cmdID", girisGerekli, async (req, res) => {
+app.get("/dashboard/:guildID/komut-yasak/sil/:cmdID", girisGerekli, async (req, res) => {
 const guild = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
 const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.id).permissions.has("MANAGE_GUILD") : false;
@@ -828,7 +828,7 @@ res.redirect("/dashboard/"+req.params.guildID+"/genel");
         if (JSON.parse(body).message && JSON.parse(body).message === "Invalid Form Body") return res.json({"hata":"Discord'da "+req.body['unban']+" ID adresine sahip bir kullanıcı bulunmuyor."});
         let bans = await sunucu.fetchBans();
         if (bans.has(req.body['unban']) === false) return res.json({"hata":sunucu.name+" sunucusunda "+JSON.parse(body).username+"#"+JSON.parse(body).discriminator+" adlı kullanıcı yasaklı olmadığı için yasağını kaldıramam."});
-        res.redirect(`/panel/${req.params.sunucuID}/yonet`);
+        res.redirect(`/dashboard/${req.params.sunucuID}/yonet`);
       });
       return
     }
@@ -837,7 +837,7 @@ res.redirect("/dashboard/"+req.params.guildID+"/genel");
     }
     
     client.panel.ayarlarKaydet(sunucu.id, sunucu, req.body, req, res);
-    res.redirect(`/panel/${req.params.sunucuID}/yonet`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/yonet`);
   });
   
 
