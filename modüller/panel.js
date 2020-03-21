@@ -318,7 +318,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
    app.get("/dashboard/:sunucuID/ototagK/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`tagKanal_${req.params.sunucuID}`) === false) return res.json({"hata": "Tag kayıt kanalı   "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`tagKanal_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/ototag`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/ototag`);
   });
   
   
@@ -797,7 +797,7 @@ res.redirect("/dashboard/"+req.params.guildID+"/genel");
 
   
   
-  app.post("/dashboard/:sunucuID", girisGerekli, (req, res) => {
+  app.post("/dashboard/:sunucuID/yonet", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const g = client.guilds.get(req.params.sunucuID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
