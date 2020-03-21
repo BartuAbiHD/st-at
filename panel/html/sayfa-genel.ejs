@@ -45,11 +45,11 @@ arr.push(x.help.name)
         <div class="col-75">
           <% if (bot.ayar.has(`prefix_${sunucu.id}`) === false) { %>
           <input type="text" style="text-align: left; width:87%;" name="prefix" id="prefix" maxlength="15" placeholder="<%=bot.ayarlar.prefix%>">
-          <a href="/panel/<%=sunucu.id%>/prefix/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=sunucu.id%>/prefix/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`prefix_${sunucu.id}`) === true) { %>
 					<input type="text" style="text-align: left; width:87%;" name="prefix" id="prefix" value="<%= bot.ayar.fetch(`prefix_${sunucu.id}`) %>" maxlength="15" placeholder="<%=bot.ayarlar.prefix%>">
-          <a href="/panel/<%=sunucu.id%>/prefix/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=sunucu.id%>/prefix/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>
@@ -66,7 +66,7 @@ arr.push(x.help.name)
             <option value="<%=r.id%>" style="color:<%=r.hexColor%>"><%=r.name%></option>
             <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/srol/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/srol/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`sRol_${guild.id}`) === true) { %>
           <select style="color:<%=guild.roles.get(bot.ayar.fetch(`sRol_${guild.id}`)).hexColor%>; text-align: left; width:87%;" name="sRol" id="sRol">
@@ -76,7 +76,7 @@ arr.push(x.help.name)
             <option value="<%=r.id%>" style="color:<%=r.hexColor%>"><%=r.name%></option>
           <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/srol/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/srol/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>
@@ -119,7 +119,7 @@ arr.push(x.help.name)
               <%var k = bot.ayar.fetch(`yasakK_${guild.id}`).includes(i) %>
               <tr>
                   <th scope="row"><%=bot.ayar.fetch(`yasakK_${guild.id}`)[i]%></th>
-            <td><a class="btn btn-danger" href="/panel/<%=guild.id%>/komut-yasak/sil/<%=bot.ayar.fetch(`yasakK_${guild.id}`)[i]%>">Yasağı kaldır</a></td>
+            <td><a class="btn btn-danger" href="/dashboard/<%=guild.id%>/komut-yasak/sil/<%=bot.ayar.fetch(`yasakK_${guild.id}`)[i]%>">Yasağı kaldır</a></td>
 
                  </tr>
 

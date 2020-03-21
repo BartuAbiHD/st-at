@@ -47,7 +47,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
             <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/dkanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/dkanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`dKanal_${guild.id}`) === true) { %>
           <select style="text-align: left; width:87%;" name="dkanal" id="dkanal">
@@ -56,7 +56,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
           <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/dkanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/dkanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>

@@ -35,7 +35,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
             <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/destekk/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/destekk/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`destekK_${guild.id}`) === true) { %>
           <select style="text-align: left; width:87%;" name="destekK" id="destekK">
@@ -44,7 +44,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
           <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/destekk/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/destekk/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>
@@ -62,7 +62,7 @@
             <option value="<%=r.id%>" style="color:<%=r.hexColor%>"><%=r.name%></option>
             <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/destekr/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/destekr/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`destekR_${guild.id}`) === true) { %>
           <select style="color:<%=guild.roles.get(bot.ayar.fetch(`destekR_${guild.id}`)).hexColor%>; text-align: left; width:87%;" name="destekR" id="destekR">
@@ -72,7 +72,7 @@
             <option value="<%=r.id%>" style="color:<%=r.hexColor%>"><%=r.name%></option>
           <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/destekr/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/destekr/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>

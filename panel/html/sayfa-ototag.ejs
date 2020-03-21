@@ -40,11 +40,11 @@
       <div class="col-75">
         <% if (bot.ayar.has(`tagB_${guild.id}`) === false) { %>
         <input type="text" style="text-align: left; width:87%;" name="otoTag" id="otoTag" maxlength="1950" placeholder="Otomatik verilecek tagı yazınız.">
-          <a href="/panel/<%=guild.id%>/tag/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/tag/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`tagB_${guild.id}`) === true) { %>
         <input type="text" style="text-align: left; width:87%;" name="otoTag" id="otoTag" maxlength="1950" value="<%=bot.ayar.fetch(`tagB_${guild.id}`)%>">
-          <a href="/panel/<%=guild.id%>/tag/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/tag/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
       </div>
     </div>
@@ -61,7 +61,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
             <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/ototagK/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/ototagK/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`tagKanal_${guild.id}`) === true) { %>
           <select style="text-align: left; width:87%;" name="otoTagK" id="otoTagK">
@@ -70,7 +70,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
           <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/ototagK/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/ototagK/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>

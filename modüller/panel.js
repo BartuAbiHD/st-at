@@ -264,10 +264,10 @@ app.get("/music", (req, res) => {
   });
   
   app.get("/dashboard/:sunucuID", girisGerekli, (req, res) => {
-    res.redirect(`/dashboard/${req.params.sunucuID}/yonet`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/manage`);
   });
 
-  app.get("/dashboard/:sunucuID/yonet", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/manage", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const guild = client.guilds.get(req.params.guildID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
@@ -318,7 +318,7 @@ if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sah
    app.get("/dashboard/:sunucuID/ototagK/sifirla", girisGerekli, (req, res) => {
     if (client.ayar.has(`tagKanal_${req.params.sunucuID}`) === false) return res.json({"hata": "Tag kayıt kanalı   "+client.guilds.get(req.params.sunucuID).name+" adlı sunucuda ayarlı olmadığı için sıfırlanamaz."});
     client.ayar.delete(`tagKanal_${req.params.sunucuID}`)
-    res.redirect(`/panel/${req.params.sunucuID}/ototag`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/ototag`);
   });
   
   
@@ -476,7 +476,7 @@ const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.i
 yukle(res, req, "sayfa-ozelkomutlar.ejs", {guild, sunucu});
 });
 
-app.post("/panel/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
+app.post("/dashboard/:guildID/ozelkomutlar", girisGerekli, (req, res) => {
 const guild = client.guilds.get(req.params.guildID);
 if (!guild) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});
 const isManaged = guild && !!guild.member(req.user.id) ? guild.member(req.user.id).permissions.has("MANAGE_GUILD") : false;
@@ -797,7 +797,7 @@ res.redirect("/dashboard/"+req.params.guildID+"/genel");
 
   
   
-  app.post("/dashboard/:sunucuID/yonet", girisGerekli, (req, res) => {
+  app.post("/dashboard/:sunucuID/manage", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const g = client.guilds.get(req.params.sunucuID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});

@@ -8,7 +8,7 @@
 
 	<div class="row justify-content-md-center">
      	 <div class="container">
-  <div class="jumbotron" style="background-color:#2C2F33">
+  <div class="jumbotron" style="background-color:#24252a">
     <div align="center"> 
 	<div align="center"><h2 style="color: #fff;"><i class="" aria-hidden="true"></i>Sayaç Sistemi</h2></div>
   <div align="center"><h2 style="color: #fff;"><i class="" aria-hidden="true"></i>━━━━━━━━━━</h2></div>
@@ -36,7 +36,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
             <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/skanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/skanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`sKanal_${guild.id}`) === true) { %>
           <select style="text-align: left; width:87%;" name="sayacKanal" id="sayacKanal">
@@ -45,7 +45,7 @@
             <option value="<%=c.id%>">#<%=c.name%></option>
           <% }); %>
           </select>
-          <a href="/panel/<%=guild.id%>/skanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/skanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
         </div>
       </div>
@@ -58,11 +58,11 @@
       <div class="col-75">
         <% if (bot.ayar.has(`sayac_${guild.id}`) === false) { %>
         <input type="text" style="text-align: left; width:87%;" name="sayac" id="sayac"  placeholder="Sayaç miktarını yazınız.">
-          <a href="/panel/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
 					<% if(bot.ayar.has(`sayac_${guild.id}`) === true) { %>
         <input type="text" style="text-align: left; width:87%;" name="sayac" id="sayac"  value="<%=bot.ayar.fetch(`sayac_${guild.id}`)%>">
-          <a href="/panel/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <a href="/dashboard/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Sıfırla</a>
           <% } %>
       </div>
     </div>
