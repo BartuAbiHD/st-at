@@ -1,12 +1,12 @@
 const config = {
-    "ownerID": "689169122604744833", //kendi IDınızı yazınız
-    "admins": ["689169122604744833", "487613974813081600"],
-    "token": "NjkwNTY3OTUwMTkyNjA3MzUz.XnTYxA.IbI-mUkdQgdJf8s-7Up1jst0PDQ", //botunuzun tokenini yazınız
+    "ownerID": "id", //kendi IDınızı yazınız
+    "admins": ["id", "id2"],
+    "token": "token", //botunuzun tokenini yazınız
     "dashboard" : {
-      "oauthSecret": "DE84yviIFpxWJQGpRoDNtXRb8Zi4E115", //botunuzun secretini yazınız
-      "callbackURL": `https://mee6gg.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
+      "oauthSecret": "oauthsecret", //botunuzun secretini yazınız
+      "callbackURL": `https://sitelink.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
       "sessionSecret": "xyzxyz", //kalsın
-      "domain": "https://mee6gg.glitch.me" //site URLnizi yazınız!
+      "domain": "https://sitelink.glitch.me" //site URLnizi yazınız!
     }
   };
   

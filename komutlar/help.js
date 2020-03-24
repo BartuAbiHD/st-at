@@ -20,7 +20,7 @@ return message.channel.send(`
 <:XMARK6:690583258022412299> It looks like you don't have any commands to show.
 
 To enable or add commands, head to your dashboard and enable the plugins of your choice -> 
-https://YAKINDA.glitch.me/dashboard/${message.guild.id}`);
+https://mee6gg.glitch.me/dashboard/${message.guild.id}/manage`);
 }
   
 if (args[0] == "levels") {
