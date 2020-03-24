@@ -1,16 +1,3 @@
-/*
-const http = require('http');
-const express = require('express');
-const app = express();
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping tamamdır.");
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000)*/
-
 if (process.version.slice(1).split(".")[0] < 8) throw new Error("Node 8.0.0 or higher is required. Update Node on your system.");
 
 const Discord = require('discord.js');
@@ -48,10 +35,10 @@ client.ayarlar = {
         "sahip": ['id'],
         "isim": "isim",
         "webpanel": "site",
-        "versiyon": "1.0.0",
+        "versiyon": "version",
         "prefix": "prefix",
-        "renk":  "#60d1f6",
-        "version":  "1.0.0",
+        "renk":  "renkkodu",
+        "version":  "version",
  };
 client.avatarURL = `bot avatar url`
 const ayarlar = client.ayarlar;
