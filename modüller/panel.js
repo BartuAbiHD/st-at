@@ -147,7 +147,6 @@ module.exports = (client) => {
       res.redirect(`anasayfa`);
     }
     
-    client.channels.get("690599167164153896").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Paneline Giriş Yaptı!`)
 
   });
   
@@ -159,7 +158,6 @@ module.exports = (client) => {
          
     });
 
-          client.channels.get("690599167164153896").send(`**${client.users.get(req.user.id).tag}** İsimli Kullanıcı Yönetim Panelinden Çıkış Yaptı!`)
 
   });
   
