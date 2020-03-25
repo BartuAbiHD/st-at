@@ -24,9 +24,7 @@ module.exports = (client) => {
     callbackURL: `https://projeismi.glitch.me/callback`,
     domain: `https://projeismi.glitch.me/`
   };
-  
-  console.log('BAŞARILI')
-  
+    
   const dataDir = path.resolve(`${process.cwd()}${path.sep}panel`);
 
   const templateDir = path.resolve(`${dataDir}${path.sep}html${path.sep}`);
