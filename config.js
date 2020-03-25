@@ -1,12 +1,12 @@
 const config = {
-    "ownerID": "493675583742672896", //kendi IDınızı yazınız
-    "admins": ["482910932725661696", "690929443719610418"],
-    "token": "NjkyMzA5MzQ2MjY4NDc5NTI4.XnsqLQ.ol4wxGBnKxsRoQM1RrBdvCxRnu8", //botunuzun tokenini yazınız
+    "ownerID": "id", //kendi IDınızı yazınız
+    "admins": ["id", "id2"],
+    "token": "token", //botunuzun tokenini yazınız
     "dashboard" : {
-      "oauthSecret": "dhzFpK_zT0rSbMHBqs3Iof4qXTJFObN4", //botunuzun secretini yazınız
-      "callbackURL": `https://berry1.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
+      "oauthSecret": "oauthSecret", //botunuzun secretini yazınız
+      "callbackURL": `https://projeismi.glitch.me/callback`, //site URLnizi yazınız /callback kısmını silmeyiniz!
       "sessionSecret": "xyzxyz", //kalsın
-      "domain": "https://berry1.glitch.me" //site URLnizi yazınız!
+      "domain": "https://projeismi.glitch.me" //site URLnizi yazınız!
     }
   };
   

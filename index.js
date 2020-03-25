@@ -940,4 +940,4 @@ client.unload = command => {
 };
 //////////////////////////////////////////////////////////////////////////////////////////
 })
-client.login('NjkyMzA5MzQ2MjY4NDc5NTI4.XnsqLQ.ol4wxGBnKxsRoQM1RrBdvCxRnu8')
+client.login('token')
