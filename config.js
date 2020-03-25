@@ -1,5 +1,5 @@
 const config = {
-    "ownerID": "id", //kendi IDınızı yazınız
+    "ownerID": "493675583742672896", //kendi IDınızı yazınız
     "admins": ["id", "id2"],
     "token": "NjkyMzA5MzQ2MjY4NDc5NTI4.XnsqLQ.ol4wxGBnKxsRoQM1RrBdvCxRnu8", //botunuzun tokenini yazınız
     "dashboard" : {
