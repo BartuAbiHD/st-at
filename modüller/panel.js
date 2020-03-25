@@ -20,9 +20,9 @@ const db = require('quick.db');
 module.exports = (client) => {
   
   const bilgiler = {
-    oauthSecret: "oauthsevret",
-    callbackURL: `https://sitelink.glitch.me/callback`,
-    domain: `https://sitelink.glitch.me/`
+    oauthSecret: "dhzFpK_zT0rSbMHBqs3Iof4qXTJFObN4",
+    callbackURL: `https://berry1.glitch.me/callback`,
+    domain: `https://projeismi.glitch.me/`
   };
   
   console.log('BAŞARILI')
