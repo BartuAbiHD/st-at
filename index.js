@@ -31,16 +31,16 @@ client.config = require("./config.js");
 
 client.ayarlar = {
         "oynuyor": "oynuyor",
-        "official_sahip": "id",
-        "sahip": ['id'],
-        "isim": "isim",
+        "official_sahip": "679694797270810642",
+        "sahip": ['679694797270810642'],
+        "isim": "mii6",
         "webpanel": "site",
-        "versiyon": "version",
-        "prefix": "prefix",
-        "renk":  "renkkodu",
-        "version":  "version",
+        "versiyon": "0.1",
+        "prefix": "!",
+        "renk":  "#fff",
+        "version":  "0.1",
  };
-client.avatarURL = `bot avatar url`
+client.avatarURL = `null`
 const ayarlar = client.ayarlar;
 
 
@@ -940,4 +940,4 @@ client.unload = command => {
 };
 //////////////////////////////////////////////////////////////////////////////////////////
 })
-client.login('token')
+client.login('NjgwNjYwOTUzNjQ1NTgwMjk5.XnydRA.XMcPOLiNt73XtRjOaWtYvyojkM8')
