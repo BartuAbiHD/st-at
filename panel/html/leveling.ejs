@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="<%=bot.avatarURL%>">
   <meta name="author" content="<%=bot.user.tag%>">
-  <meta name="keywords" content="Global bir **Sunucu Stat** botu! Hadi, ekle!">
+  <meta name="keywords" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. made by Real Code">
   <meta property="og:image" content="<%=bot.avatarURL%>">
   <meta property="og:title" content="<%=bot.user.username%> - The Discord Bot" />
-  <meta property="og:description" content="Global bir **Sunucu Stat** botu! Hadi, ekle!">
-  <meta name="description" content="Global bir **Sunucu Stat** botu! Hadi, ekle!">
+  <meta property="og:description" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. made by Real Code">
+  <meta name="description" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. ">
   <meta name="theme-color" content="#60d1f6">
   <meta charset="UTF-8">
 
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="/css/main.css" />
   
 	<link rel='icon' href='<%=bot.avatarURL%>'>
-	<title><%=bot.user.username%> - Stat Bot</title>
+	<title>Leveling bot - <%=bot.user.username%></title>
 </head>
   
   <body>
@@ -57,7 +57,7 @@
 
       <ul class="navbar-nav">
           <%if(!user) {%>
-          <li class="nav-item"><a href="/giris" class="nav-link">Giriş</a></li>
+          <li class="nav-item"><a href="/giris" class="nav-link">Login</a></li>
             <%}%>
        <%if(user) {%>
             <li class="dropdown">
@@ -77,82 +77,25 @@
       </div>
   </nav>
   
-<!-- HEADER -->
-    <br>
-    <br>
-    <br> <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-  <div class="container">
-	  <div class="jumbotron" style="background-color:#24252a">
-      <center>
-      <center><h2 style="color:#fff">Anka Stat!</h2></center>
-<br><center><h5 style="color:lightgrey">Botu ekle ve discordda tadını çıkar!</h5></center>
-        <br> 
-         
-        <left></img><a style="background-color: #62d3f5; padding: 20px; border-radius: 3px;" href="https://discordapp.com/oauth2/authorize?client_id=680660953645580299&scope=bot&permissions=2146958847" class="site-btn"><h5 style="color:#fff"><i src="https://cdn.discordapp.com/attachments/688803433947594796/690574944588791918/discord.png" class="fa fa-pla-plus" aria-hidden="true"></i>Botu Ekle!</h5></a></left>
-      <right><a style="background-color: #000; padding: 20px; border-radius: 3px;" href="https://discordapp.com/oauth2/authorize?client_id=680660953645580299&scope=bot&permissions=2146958847" class="site-btn"><h5 style="color:#fff"><i class="fa fa-pla-plus" aria-hidden="true"></i>Yakında!</h5></a></right>
-      <% if(!user) { %>
-     <!-- <br><br><br><br><br><br><br>  <center>   <a style="background-color: #44b37f; padding: 20px; border-radius: 40px;" href="https://denemneneee.glitch.me/giris" class="site-btn"><b style="color:#fff">Giriş Yap</b></a></center>-->
-			<% } else { %>
-   
-			<% if(bot.ayarlar.sahip.includes(user.id)) { %>
-          
-      <br> <br>  <center>   <a style="background-color: #a72a39; padding: 20px; border-radius: 3px;" href="/admin" class="site-btn"><b style="color:#fff"><i  aria-hidden="true"></i>Admin Panel</b></a></center>
-<% } %>
-<% } %>
-               
-   
-
-
-
-
-
-
-       </div>
-          </div>
+      <br><br>
+      <br><br>
+      <br>   <br>       <img src="https://cdn.discordapp.com/attachments/688803433947594796/690624266659430420/mee6_leveling.png" alt="Mee6" border="0" align="right"/>
+     <br>
+ <div class="container">
+  <div class="jumbotron" style="background-color:#24252a">
+    <div align="left">
+      <h2 style="color:#fff">The best leveling bot for <br>Discord</h2><br>
+     <left><h6 style="color:#8a8b8d">Keep your members engaged and entertained with a top notch <br>leveling system. Reward them with XP points and keep track of the <br>most active members on your customizable leaderboard.
+</h6></left>
+       <br><br>
+        <left></img><a style="background-color: #62d3f5; padding: 20px; border-radius: 3px;" href="https://discordapp.com/oauth2/authorize?client_id=692266260179714078&scope=bot&permissions=2146958847" class="site-btn"><h5 style="color:#fff"><i src="https://cdn.discordapp.com/attachments/688803433947594796/690574944588791918/discord.png" class="fa fa-pla-plus" aria-hidden="true"></i>Add to Discord</h5></a></left>
+      <right><a style="background-color: #000; padding: 20px; border-radius: 3px;" href="https://discordapp.com/oauth2/authorize?client_id=692266260179714078&scope=bot&permissions=2146958847" class="site-btn"><h5 style="color:#fff"><i class="fa fa-pla-plus" aria-hidden="true"></i>Learn More</h5></a></right>
+  
+      
     
+      
+    </div>
+  </div>
+</div>
 
-    </div></div></div></div></div></div></div></div></div></div></div></div></body></html>
-<!--  <center>
-<div class="subbody">
-<div class="fullsize">
-
-    <div class="container">
-      <img  class="d-inline-block align-top rounded-circle" alt="" class="_logo" src="https://cdn.discordapp.com/attachments/686170544588324895/688757005074300936/OneDrive.png" alt="1" width="170px" class="summaryhome" id="F">
-      
-    <h4 style="color:#fff">Fonksiyonlar</h4>  
-      <h9 style="color:#fff">Yardımcı Programlarından Discord'daki en sorumlu Anti-Raid tekniklerine kadar birçok harika işlevi saklar.</h9>
-      
-    </div>
-  <br>
-  <br>
-  <br>
-  <br>
-    <div class="container">
-      <img  class="d-inline-block align-top rounded-circle" alt="" class="_logo" src="https://cdn.discordapp.com/attachments/686170544588324895/688757005074300936/OneDrive.png" alt="1" width="170px" class="summaryhome" id="MC">
-      
-      <h4 style="color:#fff">Denetleme Komutları</h4>
-      <font style="color:#fff">Siz ve sunucu denetleyicileriniz için iyi ve benzersiz denetleme komutları bulunmaktadır!</font>
-        
-    </div>
-      <br>
-  <br>
-  <br>
-  <br>
-    <div class="container">
-      <img  class="d-inline-block align-top rounded-circle" alt="" class="_logo" src="https://cdn.discordapp.com/attachments/686170544588324895/688757005074300936/OneDrive.png" width="170px" class="summaryhome" id="MP">
-      
-      <h4 style="color:#fff">Müzik Çalar</h4>
-      <font style="color:#fff">Size ve Discord arkadaşlarınıza birlikte şarkı dinlemenizi sağlayan basit ama sağlam bir müzik çalara sahiptir!</font>
-        
-    </div>
-        
-    </div>
-  </center>
-    <br><br>-->
-    
 <%- include('footer.ejs', {bot, user, path}) %>
