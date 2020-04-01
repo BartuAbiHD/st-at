@@ -14,9 +14,15 @@ module.exports = (client, clientt) => {
     if (newSettings["toplamb"]) {
       db.set(`isimbot_${id}`, newSettings["toplamb"]);
     }
-    
+
     if (newSettings["toplamaktif"]) {
       db.set(`isimaktif_${id}`, newSettings["toplamaktif"]);
+    }
+    if (newSettings["toplamrekaktif"]) {
+      db.set(`isimrekoraktif_${id}`, newSettings["toplamrekaktif"]);
+    }
+    if (newSettings["sonüye"]) {
+      db.set(`isimsonüye_${id}`, newSettings["sonüye"]);
     }
   };
 
