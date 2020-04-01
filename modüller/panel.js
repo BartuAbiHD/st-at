@@ -404,9 +404,8 @@ module.exports = client => {
     yukle(res, req, "sayfa-kanalisim.ejs", { guild, sunucu });
   });
 
-  app.get("/dashboard/:sunucuID/kanalisim/toplamuye", girisGerekli, (req, res) => {
-console.log(req)
-    client.ayar.delete(`isimtoplam_${req.params.sunucuID}`);
+  app.get("/dashboard/:sunucuID/kanalisim/toplamuye", girisGerekli, (req, res, uye) => {
+    client.ayar.delete(`isimtoplam_${req.params.sunucuID}`, uye);
     res.redirect(`/dashboard/${req.params.sunucuID}/kanalisim`);
   });
 
