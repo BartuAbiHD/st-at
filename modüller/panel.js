@@ -260,10 +260,10 @@ app.get("/music", (req, res) => {
   });
   
   app.get("/dashboard/:sunucuID", girisGerekli, (req, res) => {
-    res.redirect(`/dashboard/${req.params.sunucuID}/manage`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/yonet`);
   });
 
-  app.get("/dashboard/:sunucuID/manage", girisGerekli, (req, res) => {
+  app.get("/dashboard/:sunucuID/yonet", girisGerekli, (req, res) => {
     const sunucu = client.guilds.get(req.params.sunucuID);
     const guild = client.guilds.get(req.params.guildID);
     if (!sunucu) return res.json({"hata":"Bot "+req.params.sunucuID+" ID adresine sahip bir sunucuda bulunmuyor."});

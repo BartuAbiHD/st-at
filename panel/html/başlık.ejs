@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="<%=bot.avatarURL%>">
   <meta name="author" content="<%=bot.user.tag%>">
-  <meta name="keywords" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. made by Real Code">
+  <meta name="keywords" content="Global bir **Sunucu Stat** botu! Hadi, ekle!">
   <meta property="og:image" content="<%=bot.avatarURL%>">
   <meta property="og:title" content="<%=bot.user.username%> - The Discord Bot" />
-  <meta property="og:description" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. made by Real Code">
-  <meta name="description" content="Manage your Discord server with leveling, moderation, Twitch, Youtube and Reddit notifications. ">
+  <meta property="og:description" content="Global bir **Sunucu Stat** botu! Hadi, ekle!">
+  <meta name="description" content="Global bir **Sunucu Stat** botu! Hadi, ekle!">
   <meta name="theme-color" content="#60d1f6">
   <meta charset="UTF-8">
 
@@ -30,14 +30,13 @@
   <link rel="stylesheet" href="/css/main.css" />
   
 	<link rel='icon' href='<%=bot.avatarURL%>'>
-	<title><%=bot.user.username%> - The Discord Bot</title>
+	<title><%=bot.user.username%> - Stat Bot</title>
 </head>
-  
   <body>
     
   <nav style="background-color:#1f2225" class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="https://mee6gg.glitch.me/"><h4>
-        MEE6
+      <a class="navbar-brand" href="https://anka-stat-panel.glitch.me/"><h4>
+        Anka Stat
         </h4></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -47,17 +46,13 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
 
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a href="/moderation" class="nav-link">Moderation</a></li>
-         <li class="nav-item"><a href="/leveling" class="nav-link">Leveling</a></li>
-        <li class="nav-item"><a href="/music" class="nav-link">Music</a></li>
-          <li class="nav-item"><a href="/premium" class="nav-link">Premium</a></li>
-         <li class="nav-item"><a href="https://discord.gg/WG3wrjD" class="nav-link">Help Desk</a></li>
-       <li class="nav-item"><a href="https://discord.gg/WG3wrjD" class="nav-link">Support Server</a></li>
+         <li class="nav-item"><a href="https://discord.gg/???" class="nav-link">Yardım/Destek</a></li>
+       <li class="nav-item"><a href="https://discord.gg/???" class="nav-link">Destek Sunucusu</a></li>
       </ul>
 
       <ul class="navbar-nav">
           <%if(!user) {%>
-          <li class="nav-item"><a href="/giris" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="/giris" class="nav-link">Giriş</a></li>
             <%}%>
        <%if(user) {%>
             <li class="dropdown">
@@ -65,11 +60,8 @@
               <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt=""> <%=user.username%>
            </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="background-color:#17181b">
-              <a class="dropdown-item" href="/dashboard" style="color:#a6aab5"><i aria-hidden="true"></i>My Servers</a>
-              <% if(bot.ayarlar.sahip.includes(user.id)) { %>
-						  <a class="dropdown-item" href="/admin" style="color:#a6aab5"><i aria-hidden="true"></i>Admin</a>
-				      <% } %>
-              <a class="dropdown-item" href="/cikis" style="color:#a72a39"><i class="" aria-hidden="true"></i>Logout</a>
+              <a class="dropdown-item" href="/dashboard" style="color:#a6aab5"><i aria-hidden="true"></i>Kontrol Panel</a>
+              <a class="dropdown-item" href="/cikis" style="color:#a72a39"><i class="" aria-hidden="true"></i>Çıkış</a>
         </div>
           </li>
       <%}%>
