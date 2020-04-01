@@ -374,7 +374,7 @@ module.exports = client => {
     if (!isManaged && !req.session.isAdmin)
       return res.json({
         hata:
-          "Bu sunucuda Sunucuyu Yönet iznin bulunmuyor. Bu yüzden bu sayfaya erişim sağlayamazsın."
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
       });
 
     client.writeSettings(guild.id, req.body);
@@ -399,16 +399,10 @@ module.exports = client => {
     if (!isManaged && !req.session.isAdmin)
       return res.json({
         hata:
-          "Bu sunucuda Sunucuyu Yönet iznin bulunmuyor. Bu yüzden bu sayfaya erişim sağlayamazsın."
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
       });
     yukle(res, req, "sayfa-kanalisim.ejs", { guild, sunucu });
   });
-
-  app.get("/dashboard/:sunucuID/kanalisim/toplamuye", girisGerekli, (req, res, uye) => {
-    client.ayar.delete(`isimtoplam_${req.params.sunucuID}`, uye);
-    res.redirect(`/dashboard/${req.params.sunucuID}/kanalisim`);
-  });
-
   app.get("/addbot", (req, res) => {
     res.redirect(
       `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8`
