@@ -11,7 +11,6 @@ const Strategy = require("passport-discord").Strategy;
 const helmet = require("helmet");
 const md = require("marked");
 
-//NOT  BEYLER BİRDE HER TARAFA REAL CODE YAZALIM
 exports.run = async(client, message, args) => {
 
   
@@ -44,7 +43,7 @@ Get the rank of anyone in the server`)
  .setThumbnail('https://cdn.discordapp.com/attachments/688803433947594796/690582370092449932/mee6_kare.png')
         message.channel.send(mee6help)
  
-}//embed tanımlarını değiştrelim  realcode yazalım
+}
 
 
 exports.conf = {
