@@ -18,10 +18,6 @@ const Jimp = require('jimp')
 const snekfetch = require('snekfetch');
 
 
-let komutum = JSON.parse(fs.readFileSync("./komutlar.json", "utf8"));
-
-client.cmdd = komutum
-
 
 
 require("./modüller/fonksiyonlar.js")(client);
@@ -80,7 +76,117 @@ client.on("ready", async () => {
   
 
 
+client.on("guildMemberAdd", async member => {
+  let sat = await db.fetch(`kategori_${member.guild.id}`);
+  let sa = await db.fetch(`toplamk_${member.guild.id}`);
+  let sa1 = await db.fetch(`botk_${member.guild.id}`);
+  let sa2 = await db.fetch(`aktif_${member.guild.id}`);
+  let sa3 = await db.fetch(`rekor_${member.guild.id}`);
+  let sa4 = await db.fetch(`son_${member.guild.id}`);
+  if (!sat) return;
+  if (!sa) return;
+  if (!sa1) return;
+  if (!sa2) return;
+  if (!sa3) return;
+  if (!sa4) return;
+  try {
+    member.guild.channels
+      .get(sa)
+      .setName(`» Toplam Üye ${member.guild.memberCount}`);
+  } catch (err) {
+    return;
+  }
+  try {
+    member.guild.channels.get(sa4).setName(`» Son Üye: ${member.user.tag}`);
+  } catch (err) {
+    return;
+  }
+  if (client.users.get(member.id).bot) {
+    try {
+      member.guild.channels
+        .get(sa1)
+        .setName(
+          `» Toplam Bot ${member.guild.members.filter(m => m.user.bot).size}`
+        );
+    } catch (err) {
+      return;
+    }
+  }
+});
 
+client.on("guildMemberRemove", async member => {
+  let sat = await db.fetch(`kategori_${member.guild.id}`);
+  let sa = await db.fetch(`toplamk_${member.guild.id}`);
+  let sa1 = await db.fetch(`botk_${member.guild.id}`);
+  let sa2 = await db.fetch(`aktif_${member.guild.id}`);
+  let sa3 = await db.fetch(`rekor_${member.guild.id}`);
+  let sa4 = await db.fetch(`son_${member.guild.id}`);
+  if (!sat) return;
+  if (!sa) return;
+  if (!sa1) return;
+  if (!sa2) return;
+  if (!sa3) return;
+  if (!sa4) return;
+  try {
+    member.guild.channels
+      .get(sa)
+      .setName(`» Toplam Üye ${member.guild.memberCount}`);
+  } catch (err) {
+    return;
+  }
+  if (client.users.get(member.id).bot) {
+    try {
+      member.guild.channels
+        .get(sa1)
+        .setName(
+          `» Toplam Bot ${member.guild.members.filter(m => m.user.bot).size}`
+        );
+    } catch (err) {
+      return;
+    }
+  }
+});
+
+client.on("message", async message => {
+  let sa2 = await db.fetch(`aktif_${message.guild.id}`);
+  let kanal = await db.fetch(`rekor_${message.guild.id}`);
+  let rekoronline = await db.fetch(`panelrekor_${message.guild.id}`);
+  try {
+    message.guild.channels
+      .get(sa2)
+      .setName(
+        `» Toplam Aktif ${
+          message.guild.members.filter(off => off.presence.status !== "offline")
+            .size
+        }`
+      );
+  } catch (err) {
+    return;
+  }
+  if (
+    message.guild.members.filter(off => off.presence.status !== "offline")
+      .size > rekoronline
+  ) {
+    db.set(
+      `panelrekor_${message.guild.id}`,
+      message.guild.members.filter(off => off.presence.status !== "offline")
+        .size
+    );
+    try {
+      message.guild.channels
+        .get(kanal)
+        .setName(
+          `» Rekor Aktif ${
+            message.guild.members.filter(
+              off => off.presence.status !== "offline"
+            ).size
+          }`
+        );
+    } catch (err) {
+      return;
+    }
+  }
+});
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -169,4 +275,4 @@ client.unload = command => {
   });
 };
 //////////////////////////////////////////////////////////////////////////////////////////
-client.login('NjkwNTY5ODM2OTU4NDQ5NzI2.XoTY7A.dvDGB7N2SI6mihNYRAew2QPwa9M')
+client.login('NjgwNjYwOTUzNjQ1NTgwMjk5.XoUC_g.NEIBgkQYzWawWFexwU7zZesIu1I')
