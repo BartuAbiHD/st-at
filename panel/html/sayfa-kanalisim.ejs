@@ -22,13 +22,12 @@
           
         <div class="row">
       <div class="col-25">
-          <label for="üye">Toplam Üye</label>
+          <label for="uye">Toplam Üye</label>
       </div>
       <div class="col-75">
         <% if (bot.ayar.has(`isimtoplam_${guild.id}`) === false) { %>
-        <input type="text" style="text-align: left; width:87%;" name="üye" id="üye"  placeholder="Kullanabileceğiniz değişkenler; [toplamüye]">
-        <a href="/panel/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Kaydet</a>
-        <%bot.ayar.set(`isimtoplam_${guild.id}`, üye)%>
+        <input type="text" style="text-align: left; width:87%;" name="uye" id="uye"  placeholder="Kullanabileceğiniz değişkenler; [toplamüye]">
+        <a href="/dashboard/<%=guild.id%>/kanalisim/toplamuye" class="reset-btn" role="button">Kaydet</a>
           <% } %>
 					<% if(bot.ayar.has(`isimtoplam_${guild.id}`) === true) { %>
         <input type="text" style="text-align: left; width:87%;" name="sayac" id="sayac"  value="<%=bot.ayar.fetch(`isimtoplam_${guild.id}`)%>">

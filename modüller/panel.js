@@ -404,15 +404,9 @@ module.exports = client => {
     yukle(res, req, "sayfa-kanalisim.ejs", { guild, sunucu });
   });
 
-  app.get("/dashboard/:sunucuID/kanalisim/sifirla", girisGerekli, (req, res) => {
-    if (client.ayar.has(`sayac_${req.params.sunucuID}`) === false)
-      return res.json({
-        hata:
-          "Giriş çıkış kanalı " +
-          client.guilds.get(req.params.sunucuID).name +
-          " adlı sunucuda ayarlı olmadığı için sıfırlanamaz."
-      });
-    client.ayar.delete(`sayac_${req.params.sunucuID}`);
+  app.get("/dashboard/:sunucuID/kanalisim/toplamuye", girisGerekli, (req, res) => {
+console.log(req)
+    client.ayar.delete(`isimtoplam_${req.params.sunucuID}`);
     res.redirect(`/dashboard/${req.params.sunucuID}/kanalisim`);
   });
 
