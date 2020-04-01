@@ -1,83 +1,84 @@
-<%- include('başlık.ejs', {bot, user, path}) %>
-  
-  <!-- HEADER -->
- <div class="container">
-  <div class="jumbotron" style="background-color:#24252a">
-    <div align="center"> 
-	<div align="center"><h2 style="color: #fff;"><i class="" aria-hidden="true"></i>Aşağıdan Düzenle!</h2></div>
-  <div align="center"><h2 style="color: #fff;"><i class="" aria-hidden="true"></i>━━━━━━━━━━</h2></div>
-  </div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="row">
-    
+<%- include('başlık.ejs', {bot, user, path}) %>
+<div class="container">
+
+	<div class="row justify-content-md-center">
+		<div align="center"><h2 style="color: #fff;"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Sayaç Sistemi</h2></div>
+  </div>
+	
+  <!--<center><h7 style="color:red">Bakımda...</h7></center>-->
+  
+	<div class="row">
+		
+
 <div class="col">
     <div class="container">
-      
-
-      <br>
-      <br>
-      <br>
-        <br>
-        <h4 align="center" style="color:#fff">
-          Komut Listesi
-      </h4>
-      <br>
-      <center><a align="center" class="btn btn-success" data-toggle="collapse" style="color: white;" data-target="#yeni">Komut Oluştur</a></center>
-        <br>
-        <div id="yeni" class="collapse in">
       <form method="post">
-        
-        
+        <ul class="list-group list-group-flush">
           
-          <div class="row">
-                    <div class="col">
-                        <label style="color: white;" for="komut">Komut</label>
-                    </div>
-                    <div class="col-75">
-                      <input type="text" id="komut" name="komut" placeholder="Komutun adını yazın." required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label style="color: white;" for="aciklama">Açıklama</label>
-                    </div>
-                    <div class="col-75">
-                      <textarea class="form-control" id="aciklama" name="aciklama" rows="3" placeholder="Komut kullanıldığında verilecek cevabı yazın." style="margin-top: 0px; margin-bottom: 0px; height: 65px;" required></textarea>
-                    </div>
-                </div>
-         <button style="background-color:blue; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-fw fa-save" aria-hidden="true"></i> Komut Ekle/Düzenle</button>
-          </form>
+    <div class="row">
+        <div class="col-25">
+          <label for="sayacKanal">Sayaç Kanalı</label>
         </div>
-        <br>
-        <%if(bot.cmdd[guild.id]) {%>
-        <table class="table table-hover" style="background-color:#222">
-            <thead>
-                <tr>
-                  <th scope="col" style="width: 25%">Komut</th>
-                    <th scope="col" style="width: 50%">Açıklama</th>
-                    <th scope="col" style="width: 25%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                    <%for(var i = 0; i < bot.cmdd[guild.id].length; i++) {%>
-              <tr>
-                  <th scope="row"><%=Object.keys(bot.cmdd[guild.id][i])%></th>
-                  <td><%=bot.cmdd[guild.id][i][Object.keys(bot.cmdd[guild.id][i])]%></td>
-                  <td><a class="btn btn-danger" href="/dashboard/<%=guild.id%>/ozelkomutlar/sil/<%=Object.keys(bot.cmdd[guild.id][i])%>">Komutu Sil</a></td>
-                 </tr>
-                  <%}%>
-            <%} else {%>
-                  <h5 align="center" style="color:#fff">
-                    Sunucuda hiç özel komut bulunmuyor.
-              </h5>
-                         <%}%>
-            </tbody>
-        </table>
-               <right>
+        <div class="col-75">
+          <% if (bot.ayar.has(`sKanal_${guild.id}`) === false) { %>
+          <select style="text-align: left; width:87%;" name="sayacKanal" id="sayacKanal">
+            <option disabled selected>Lütfen bir kanal seçiniz.</option>
+            <% guild.channels.filter(c => c.type === "text").forEach(c => { %>
+            <option value="<%=c.id%>">#<%=c.name%></option>
+            <% }); %>
+          </select>
+          <a href="/panel/<%=guild.id%>/skanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`sKanal_${guild.id}`) === true) { %>
+          <select style="text-align: left; width:87%;" name="sayacKanal" id="sayacKanal">
+            <option value="<%=bot.ayar.fetch(`sKanal_${guild.id}`)%>"><%=guild.channels.get(bot.ayar.fetch(`sKanal_${guild.id}`)).name%></option>
+					 <% guild.channels.filter(c => c.type === "text").filter(c => c.id !== bot.ayar.fetch(`sKanal_${guild.id}`)).forEach(c => { %>
+            <option value="<%=c.id%>">#<%=c.name%></option>
+          <% }); %>
+          </select>
+          <a href="/panel/<%=guild.id%>/skanal/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+        </div>
+      </div>
+
+          
+        <div class="row">
+      <div class="col-25">
+          <label for="sayac">Sayaç Miktarı</label>
+      </div>
+      <div class="col-75">
+        <% if (bot.ayar.has(`sayac_${guild.id}`) === false) { %>
+        <input type="text" style="text-align: left; width:87%;" name="sayac" id="sayac"  placeholder="Sayaç miktarını yazınız.">
+          <a href="/panel/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`sayac_${guild.id}`) === true) { %>
+        <input type="text" style="text-align: left; width:87%;" name="sayac" id="sayac"  value="<%=bot.ayar.fetch(`sayac_${guild.id}`)%>">
+          <a href="/panel/<%=guild.id%>/sayac/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+      </div>
+    </div>
+           </div>
+      </div>
+          
+          
+          
+          </ul>
           <div style="width: 100%; text-align: right; margin-top: 15px;">
-            </right>
-      <a href="yonet" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-mail-reply" aria-hidden="true"></i> Geri Dön</button> </a>
+    <button style="background-color:blue; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-fw fa-save" aria-hidden="true"></i> Kaydet</button>
+        <a href="yonet" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-mail-reply" aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+    
   </div>
+      </form>
+    </div>
+  </div>
+    
 </div>
 
 
+<script>
+	var ts = parseInt($('#guildCreate').text());
+	$('#guildCreate').html(`<strong>Created:</strong>: ${moment(ts).format('MMMM Do YYYY (h:mm a)')}`);  
+</script>
+<% include footer.ejs %>

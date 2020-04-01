@@ -206,7 +206,7 @@ module.exports = client => {
     yukle(res, req, "sayfa-ayarlar.ejs", { sunucu, guild });
   });
 
-  app.get("/dashboard/:guildID/kanalisim", girisGerekli, (req, res) => {
+  /*app.get("/dashboard/:guildID/kanalisim", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
 
@@ -356,7 +356,65 @@ module.exports = client => {
 
       res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
     }
-  );
+  );*/
+  app.post("/dashboard/:guildID/kanalisim", girisGerekli, async (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.sunucuID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sunucuda Sunucuyu Yönet iznin bulunmuyor. Bu yüzden bu sayfaya erişim sağlayamazsın."
+      });
+
+    client.writeSettings(guild.id, req.body);
+
+    res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
+  });
+
+  app.get("/dashboard/:guildID/kanalisim", girisGerekli, (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.guildID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sunucuda Sunucuyu Yönet iznin bulunmuyor. Bu yüzden bu sayfaya erişim sağlayamazsın."
+      });
+    yukle(res, req, "sayfa-kanalisim.ejs", { guild, sunucu });
+  });
+
+  app.get("/dashboard/:sunucuID/kanalisim/sifirla", girisGerekli, (req, res) => {
+    if (client.ayar.has(`sayac_${req.params.sunucuID}`) === false)
+      return res.json({
+        hata:
+          "Giriş çıkış kanalı " +
+          client.guilds.get(req.params.sunucuID).name +
+          " adlı sunucuda ayarlı olmadığı için sıfırlanamaz."
+      });
+    client.ayar.delete(`sayac_${req.params.sunucuID}`);
+    res.redirect(`/dashboard/${req.params.sunucuID}/kanalisim`);
+  });
 
   app.get("/addbot", (req, res) => {
     res.redirect(
