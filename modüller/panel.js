@@ -381,21 +381,8 @@ module.exports = client => {
 
     res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
   });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-app.get("/dashboard/:guildID/toplamuye/sifirla", girisGerekli, (req, res) => {
+
+  app.get("/dashboard/:guildID/toplamuye/sifirla", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
     if (!guild)
@@ -414,20 +401,102 @@ app.get("/dashboard/:guildID/toplamuye/sifirla", girisGerekli, (req, res) => {
         hata:
           "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
       });
- db.delete(`isimtoplam_${req.params.sunucuID}`)
-    yukle(res, req, "sayfa-kanalisim.ejs", { guild, sunucu });
+    db.delete(`isimtoplam_${req.params.guildID}`);
+    res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
+  });
+    app.get("/dashboard/:guildID/toplambot/sifirla", girisGerekli, (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.guildID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
+      });
+    db.delete(`isimbot_${req.params.guildID}`);
+    res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
+  });
+
+      app.get("/dashboard/:guildID/toplamaktif/sifirla", girisGerekli, (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.guildID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
+      });
+    db.delete(`isimaktif_${req.params.guildID}`);
+    res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
   });
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+        app.get("/dashboard/:guildID/toplamrekaktif/sifirla", girisGerekli, (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.guildID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
+      });
+    db.delete(`isimrekoraktif_${req.params.guildID}`);
+    res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
+  });
+      app.get("/dashboard/:guildID/sonuye/sifirla", girisGerekli, (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.guildID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
+      });
+    db.delete(`isimsonüye_${req.params.guildID}`);
+    res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
+  });
+
+  //https://webpanel.anka-stat.tk/dashboard/681065202195628073/kanalisim isimsonüye
+
   app.get("/dashboard/:guildID/kanalisim", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
