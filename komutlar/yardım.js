@@ -4,14 +4,34 @@ const Discord = require("discord.js"),
 
 exports.run = async (client, message, args) => {
   try {
-        const embed = new Discord.RichEmbed()
-        .setTitle("İşte! Komutlar;")
+    const embed = new Discord.RichEmbed()
+      .setTitle("İşte! Komutlar;")
       .setColor("GREEN")
       .setDescription(
         `NOT: Eğer botu sizde sunucularınıza eklerseniz; botun sürdürülebilirliğini arttırırsınız :) Eklemek İçin: [Tıkla!](https://discordapp.com/oauth2/authorize?client_id=680660953645580299&scope=bot&permissions=8)`
-      ).addField(`🔥 !kur 🔥`, `💡 Bu komut sayesinde panelinizi kurabilirsiniz! İsterseniz adlarını D`)
+      )
+      .addField(
+        `🔥 !kur 🔥`,
+        `Bu komut sayesinde panelinizi kurabilirsiniz! İsterseniz adlarını webpanelimizden değiştirebilirsiniz!`
+      )
+      .addField(
+        `🔥 !webpanel 🔥`,
+        `Bu komut sayesinde webpanele ulaşabilirsiniz! Bu sayede panel kanallarının adlarını değiştirebilirsiniz!`
+      )
+      .addField(
+        `🔥 !sıfırla 🔥`,
+        `Bu komut sayesinde paneli sıfırlayabilirsiniz!`
+      )
+      .addField(
+        `🔥 !bot-bilgi 🔥`,
+        `Bu komut sayesinde; bot istatistiklerine ve hakkında birkaç bilgiye ulaşabilirsiniz!`
+      )
+      .addField(
+        `🔥 !yardım 🔥`,
+        `Bu komut sayesinde tüm komutları görüntülüyebilirsiniz!`
+      );
     message.channel.send(embed);
-    return;  
+    return;
   } catch (err) {
     const embed = new Discord.RichEmbed()
       .setColor("RED")
@@ -26,12 +46,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["dashboard", "website"],
+  aliases: ["y", "help"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "webpanel",
-  description: "webpanel",
-  usage: "webpanel"
+  name: "yardım",
+  description: "yardım",
+  usage: "yardım"
 };
