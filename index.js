@@ -43,6 +43,7 @@ client.ayar = db;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 client.on("ready", async () => {
+  client.user.setActivity(`!yardım | !webpanel | !kur | !sıfırla`)
   client.appInfo = await client.fetchApplication();
   setInterval(async () => {
     client.appInfo = await client.fetchApplication();
@@ -152,12 +153,16 @@ client.on("message", async message => {
   let rekoronline = await db.fetch(`panelrekor_${message.guild.id}`);
   try {
     let isim1 =
-        (await db.fetch(`isimaktif_${message.guild.id}`)) ||
-        `» Toplam Aktif {toplamaktif}`;
+      (await db.fetch(`isimaktif_${message.guild.id}`)) ||
+      `» Toplam Aktif {toplamaktif}`;
     message.guild.channels
       .get(sa2)
       .setName(
-        isim1.replace(`{toplamaktif}`, message.guild.members.filter(off => off.presence.status !== "offline").size)
+        isim1.replace(
+          `{toplamaktif}`,
+          message.guild.members.filter(off => off.presence.status !== "offline")
+            .size
+        )
       );
   } catch (err) {
     return;
@@ -171,16 +176,14 @@ client.on("message", async message => {
       message.guild.members.filter(off => off.presence.status !== "offline")
         .size
     );
+    let kontrole = await db.fetch(`panelrekor_${message.guild.id}`);
     try {
+      let isim2 =
+        (await db.fetch(`isimrekoraktif_${message.guild.id}`)) ||
+        `» Rekor Aktif {rekoraktif}`;
       message.guild.channels
         .get(kanal)
-        .setName(
-          `» Rekor Aktif ${
-            message.guild.members.filter(
-              off => off.presence.status !== "offline"
-            ).size
-          }`
-        );
+        .setName(isim2.replace(`{rekoraktif}`, kontrole));
     } catch (err) {
       return;
     }
