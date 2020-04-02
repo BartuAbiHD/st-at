@@ -94,6 +94,7 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ["panel-sil", "sıfırla"],
+  permLevel: 0
 };
 
 exports.help = {
