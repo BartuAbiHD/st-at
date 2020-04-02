@@ -409,10 +409,5 @@ module.exports = client => {
     );
   });
 
-  app.get("/sunucular/:sunucuID/botuat", girisGerekli, (req, res) => {
-    client.guilds.get(req.params.sunucuID).leave();
-    res.redirect("/sunucular");
-  });
-
   app.listen(process.env.PORT);
 };
