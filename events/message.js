@@ -1,7 +1,7 @@
 const ayarlar = require("../config.json");
 const sure = 5;
 const beklememesaji = `Bu komutu kullanabilmek için \`${sure}\` saniye kadar beklemelisin!`;
-const sahipbeklemesi = false;
+const sahipbeklemesi = true;
 let yazma = new Set();
 
 module.exports = message => {

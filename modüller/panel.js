@@ -381,7 +381,53 @@ module.exports = client => {
 
     res.redirect("/dashboard/" + req.params.guildID + "/kanalisim");
   });
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+app.get("/dashboard/:guildID/toplamuye/sifirla", girisGerekli, (req, res) => {
+    const guild = client.guilds.get(req.params.guildID);
+    const sunucu = client.guilds.get(req.params.guildID);
+    if (!guild)
+      return res.json({
+        hata:
+          "Bot " +
+          req.params.sunucuID +
+          " ID adresine sahip bir sunucuda bulunmuyor."
+      });
+    const isManaged =
+      guild && !!guild.member(req.user.id)
+        ? guild.member(req.user.id).permissions.has("MANAGE_GUILD")
+        : false;
+    if (!isManaged && !req.session.isAdmin)
+      return res.json({
+        hata:
+          "Bu sayfaya erişebilmen için; sunucuda **Sunucuyu Yönet** yetkisine sahip olman gerek."
+      });
+ db.delete(`isimtoplam_${req.params.sunucuID}`)
+    yukle(res, req, "sayfa-kanalisim.ejs", { guild, sunucu });
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   app.get("/dashboard/:guildID/kanalisim", girisGerekli, (req, res) => {
     const guild = client.guilds.get(req.params.guildID);
     const sunucu = client.guilds.get(req.params.guildID);
