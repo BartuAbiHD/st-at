@@ -1,80 +1,56 @@
-if (process.version.slice(1).split(".")[0] < 8) throw new Error("Node 8.0.0 or higher is required. Update Node on your system.");
+if (process.version.slice(1).split(".")[0] < 8)
+  throw new Error(
+    "Node 8.0.0 or higher is required. Update Node on your system."
+  );
 
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
 const bot = new Discord.Client();
-const {RichEmbed} = require('discord.js');
+const { RichEmbed } = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
-const chalk = require('chalk');
-const fs = require('fs');
-const { stripIndents } = require('common-tags');
-const moment = require('moment');
+const chalk = require("chalk");
+const fs = require("fs");
+const { stripIndents } = require("common-tags");
+const moment = require("moment");
 
-
-const db = require('quick.db');
-const jimp = require('jimp');
-const Jimp = require('jimp')
-const snekfetch = require('snekfetch');
-
-
-
+const db = require("quick.db");
+const jimp = require("jimp");
+const Jimp = require("jimp");
+const snekfetch = require("snekfetch");
 
 require("./modüller/fonksiyonlar.js")(client);
-require('./util/eventLoader')(client);
+require("./util/eventLoader")(client);
 client.config = require("./config.js");
 
-
 client.ayarlar = {
-        "oynuyor": "oynuyor",
-        "official_sahip": "679694797270810642",
-        "sahip": ['679694797270810642'],
-        "isim": "mii6",
-        "webpanel": "site",
-        "versiyon": "0.1",
-        "prefix": "!",
-        "renk":  "#fff",
-        "version":  "0.1",
- };
-client.avatarURL = `null`
+  oynuyor: "oynuyor",
+  official_sahip: "679694797270810642",
+  sahip: ["679694797270810642"],
+  isim: "Anka Stat",
+  webpanel: "https://anka-stat-panel.glitch.me/",
+  versiyon: "0.1",
+  prefix: "!",
+  renk: "#fff",
+  version: "0.1"
+};
 const ayarlar = client.ayarlar;
-
-
-
-//var prefix = ayarlar.prefix;
-
 const log = message => {
-  console.log(`${chalk.yellow(`»`)} ${message}`);
+  console.log(`${chalk.red(`»`)} ${message}`);
 };
 
-
-                         
- 
-  client.ayar = db;
-   
-
-
-
-
-
-
+client.ayar = db;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 client.on("ready", async () => {
-  
   client.appInfo = await client.fetchApplication();
-  setInterval( async () => {
+  setInterval(async () => {
     client.appInfo = await client.fetchApplication();
   }, 60000);
-  
-  require("./modüller/panel.js")(client); 
 
-  
-})
-  //////////////////////////////////////////////////////////////////////////////////////////
-  
-  
-
+  require("./modüller/panel.js")(client);
+});
+//////////////////////////////////////////////////////////////////////////////////////////
 
 client.on("guildMemberAdd", async member => {
   let sat = await db.fetch(`kategori_${member.guild.id}`);
@@ -90,23 +66,37 @@ client.on("guildMemberAdd", async member => {
   if (!sa3) return;
   if (!sa4) return;
   try {
+    let isim =
+      (await db.fetch(`isimtoplam_${member.guild.id}`)) ||
+      `» Toplam Üye {toplamüye}`;
     member.guild.channels
       .get(sa)
-      .setName(`» Toplam Üye ${member.guild.memberCount}`);
+      .setName(isim.replace(`{toplamüye}`, member.guild.memberCount));
   } catch (err) {
     return;
   }
   try {
-    member.guild.channels.get(sa4).setName(`» Son Üye: ${member.user.tag}`);
+    let isim2 =
+      (await db.fetch(`isimsonüye_${member.guild.id}`)) ||
+      `» Son Üye: {sonüye}`;
+    member.guild.channels
+      .get(sa4)
+      .setName(isim2.replace(`{sonüye}`, member.user.tag));
   } catch (err) {
     return;
   }
   if (client.users.get(member.id).bot) {
     try {
+      let isim3 =
+        (await db.fetch(`isimbot_${member.guild.id}`)) ||
+        `» Toplam Bot {toplambot}`;
       member.guild.channels
         .get(sa1)
         .setName(
-          `» Toplam Bot ${member.guild.members.filter(m => m.user.bot).size}`
+          isim3.replace(
+            `{toplambot}`,
+            member.guild.members.filter(m => m.user.bot).size
+          )
         );
     } catch (err) {
       return;
@@ -128,18 +118,27 @@ client.on("guildMemberRemove", async member => {
   if (!sa3) return;
   if (!sa4) return;
   try {
+    let isim =
+      (await db.fetch(`isimtoplam_${member.guild.id}`)) ||
+      `» Toplam Üye {toplamüye}`;
     member.guild.channels
       .get(sa)
-      .setName(`» Toplam Üye ${member.guild.memberCount}`);
+      .setName(isim.replace(`{toplamüye}`, member.guild.memberCount));
   } catch (err) {
     return;
   }
   if (client.users.get(member.id).bot) {
     try {
+      let isim3 =
+        (await db.fetch(`isimbot_${member.guild.id}`)) ||
+        `» Toplam Bot {toplambot}`;
       member.guild.channels
         .get(sa1)
         .setName(
-          `» Toplam Bot ${member.guild.members.filter(m => m.user.bot).size}`
+          isim3.replace(
+            `{toplambot}`,
+            member.guild.members.filter(m => m.user.bot).size
+          )
         );
     } catch (err) {
       return;
@@ -152,13 +151,13 @@ client.on("message", async message => {
   let kanal = await db.fetch(`rekor_${message.guild.id}`);
   let rekoronline = await db.fetch(`panelrekor_${message.guild.id}`);
   try {
+    let isim1 =
+        (await db.fetch(`isimaktif_${message.guild.id}`)) ||
+        `» Toplam Aktif {toplamaktif}`;
     message.guild.channels
       .get(sa2)
       .setName(
-        `» Toplam Aktif ${
-          message.guild.members.filter(off => off.presence.status !== "offline")
-            .size
-        }`
+        isim1.replace(`{toplamaktif}`, message.guild.members.filter(off => off.presence.status !== "offline").size)
       );
   } catch (err) {
     return;
@@ -188,12 +187,8 @@ client.on("message", async message => {
   }
 });
 
-
 //////////////////////////////////////////////////////////////////////////////////////////
 
-  
-  
-  
 //////////////////////////////////////////////////////////////////////////////////////////
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -261,4 +256,4 @@ client.unload = command => {
   });
 };
 //////////////////////////////////////////////////////////////////////////////////////////
-client.login('NjgwNjYwOTUzNjQ1NTgwMjk5.XoUC_g.NEIBgkQYzWawWFexwU7zZesIu1I')
+client.login("NjgwNjYwOTUzNjQ1NTgwMjk5.XoUC_g.NEIBgkQYzWawWFexwU7zZesIu1I");
