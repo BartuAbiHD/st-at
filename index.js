@@ -28,7 +28,7 @@ client.ayarlar = {
   official_sahip: "679694797270810642",
   sahip: ["679694797270810642"],
   isim: "Anka Stat",
-  webpanel: "https://anka-stat-panel.glitch.me/",
+  webpanel: "https://webpanel.anka-stat.tk/",
   versiyon: "0.1",
   prefix: "!",
   renk: "#fff",
