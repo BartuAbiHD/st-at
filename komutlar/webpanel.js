@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
         .setTitle("İşte! Webpanel;")
       .setColor("GREEN")
       .setDescription(
-        `Hemen [tıklayarak]() webpanele ücretsiz bir şekilde ulaşabilirsiniz! [Tıkla!]()`
+        `Hemen [tıklayarak](https://anka-stat-panel.glitch.me/) webpanele ücretsiz bir şekilde ulaşabilirsiniz! [Tıkla!](https://anka-stat-panel.glitch.me/)`
       );
     message.channel.send(embed);
     return;  
@@ -26,12 +26,11 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["panel-sil", "sıfırla"],
-  permLevel: 3
+  aliases: ["dashboard", "website"]
 };
 
 exports.help = {
-  name: "panel-sıfırla",
-  description: "panel-sıfırla",
-  usage: "panel-sıfırla"
+  name: "webpanel",
+  description: "webpanel",
+  usage: "webpanel"
 };
