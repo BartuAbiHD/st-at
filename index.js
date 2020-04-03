@@ -13,6 +13,16 @@ const chalk = require("chalk");
 const fs = require("fs");
 const { stripIndents } = require("common-tags");
 const moment = require("moment");
+const http = require('http');
+const express = require("express")
+/////////////////////////HTTPS///////////////////////////////////////
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+setInterval(() => {
+  http.get(`http://anka-stat.glitch.me/`);
+}, 280000);
 
 const db = require("quick.db");
 const jimp = require("jimp");
