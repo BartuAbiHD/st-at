@@ -57,11 +57,12 @@ exports.conf = {
 	guildOnly: true,
 	aliases: ["kod", "kod-çalıştır"],
 	permLevel: 4,
-	kategori: 'yapımcı'
+	
 }
 
 exports.help = {
 	name: 'eval',
 	description: 'Yazılan kodu çalıştırır.',
 	usage: 'eval <kod>',
+  kategori: 'yapımcı'
 }
