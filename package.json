@@ -73,7 +73,8 @@
     "useful-tools": "^0.2.6",
     "xml2js": "^0.4.19",
     "xmlhttprequest": "^1.8.0",
-    "ytdl-core": "^0.29.0"
+    "ytdl-core": "^0.29.0",
+    "https": "^1.0.0"
   },
   "engines": {
     "node": "8.x"
