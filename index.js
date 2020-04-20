@@ -21,7 +21,7 @@ app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 setInterval(() => {
-  http.get(`http://anka-stat.glitch.me/`);
+  http.get(``); //proje lnik
 }, 280000);
 
 const db = require("quick.db");
@@ -35,10 +35,10 @@ client.config = require("./config.js");
 
 client.ayarlar = {
   oynuyor: "oynuyor",
-  official_sahip: "679694797270810642",
-  sahip: ["679694797270810642"],
+  official_sahip: "",
+  sahip: [""],
   isim: "Anka Stat",
-  webpanel: "https://webpanel.anka-stat.tk/",
+  webpanel: "",
   versiyon: "0.1",
   prefix: "!",
   renk: "#fff",
@@ -284,4 +284,4 @@ client.elevation = message => {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-client.login("NjgwNjYwOTUzNjQ1NTgwMjk5.XoUC_g.NEIBgkQYzWawWFexwU7zZesIu1I");
+client.login("");

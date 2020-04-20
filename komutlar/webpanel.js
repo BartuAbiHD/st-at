@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
         .setTitle("İşte! Webpanel;")
       .setColor("GREEN")
       .setDescription(
-        `Hemen [tıklayarak](https://webpanel.anka-stat.tk/) webpanele ücretsiz bir şekilde ulaşabilirsiniz! [Tıkla!](https://webpanel.anka-stat.tk/)`
+        `Hemen [tıklayarak]() webpanele ücretsiz bir şekilde ulaşabilirsiniz! [Tıkla!]()`
       );
     message.channel.send(embed);
     return;  
