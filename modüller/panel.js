@@ -18,9 +18,9 @@ const db = require("quick.db");
 
 module.exports = client => {
   const bilgiler = {
-    oauthSecret: "",
-    callbackURL: `https://stat.glitch.me/callback`,
-    domain: `https://stat.glitch.me/`
+    oauthSecret: "3ODS1NNpolTyGJC7r7KNZSe8BPiNRxRk",
+    callbackURL: `https://statsturk.glitch.me/callback`,
+    domain: `https://statturk.glitch.me/`
   };
 
   const dataDir = path.resolve(`${process.cwd()}${path.sep}panel`);
