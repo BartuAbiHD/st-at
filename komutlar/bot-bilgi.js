@@ -25,13 +25,13 @@ module.exports.run = async (bot, message) => {
         `%${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}`,
         true
       )
-      //.addField(`Toplam Shard`, bot.shard.count, true)
-      //.addField(`Bulunduğum Shard`, bot.shard.id+1, true)
-      //.addField(`Genel Shard`, `${bot.shard.id+1}/${bot.shard.count}`, true)
+      .addField(`Toplam Shard`, bot.shard.count, true)
+      .addField(`Bulunduğum Shard`, bot.shard.id+1, true)
+      .addField(`Genel Shard`, `${bot.shard.id+1}/${bot.shard.count}`, true)
       .addField(`Destek Sunucusu`, `[Tıkla!](${ayarlar.sunucun})`, true)
       .addField(
         `Botu Ekleyin`,
-        `[Tıkla!](https://discordapp.com/oauth2/authorize?client_id=680660953645580299&scope=bot&permissions=8)`,
+        `[Tıkla!]()`,
         true
       )
       .addField(`Bota Oy Verin`, `YAKINDA`, true)
